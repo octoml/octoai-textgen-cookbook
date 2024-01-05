@@ -1,0 +1,163 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "import",
+        "react",
+        "prettier"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "mdx/code-blocks": false,
+        "mdx/language-mapper": {}
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [
+                    ".tsx",
+                    ".jsx"
+                ]
+            }
+        ],
+        "react/react-in-jsx-scope": 0,
+        "react/prop-types": 0,
+        "react/display-name": 0,
+        "prettier/prettier": "warn",
+        "curly": "error",
+        "eqeqeq": [
+            "error",
+            "smart"
+        ],
+        "no-lonely-if": "error",
+        "no-var": "error",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxBOF": 0
+            }
+        ],
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "all"
+            }
+        ],
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": false
+            }
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "prefer-arrow-callback": "error",
+        "object-shorthand": "error",
+        "no-shadow": [
+            "error",
+            {
+                "builtinGlobals": false
+            }
+        ],
+        "spaced-comment": [
+            "error",
+            "always"
+        ],
+        "no-nested-ternary": "error",
+        "array-callback-return": [
+            "error",
+            {
+                "allowImplicit": true,
+                "checkForEach": true
+            }
+        ],
+        "func-style": [
+            "error",
+            "expression"
+        ],
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "no-use-before-define": "off",
+        "newline-before-return": "warn",
+        "sort-imports": [
+            "error",
+            {
+                "ignoreDeclarationSort": true
+            }
+        ],
+        "no-undef": "off",
+        "no-redeclare": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "^_",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/no-use-before-define": [
+            "error"
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/member-delimiter-style": "warn",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "import/no-duplicates": "error",
+        "import/first": "error",
+        "import/default": "error",
+        "import/no-named-as-default-member": "warn",
+        "import/no-named-default": "error",
+        "import/newline-after-import": "warn",
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "type",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index"
+                ],
+                "distinctGroup": true,
+                "newlines-between": "always",
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
+            }
+        ]
+    }
+}
