@@ -1,0 +1,8 @@
+.simplebar-scrollbar:before {
+    @apply bg-gray-50 !important;
+    opacity: 1 !important;
+  }
+
+  .simplebar-track {
+    z-index: 100 !important;
+  }
