@@ -2,6 +2,7 @@ import os
 import sys
 from dotenv import load_dotenv
 from langchain.llms.octoai_endpoint import OctoAIEndpoint
+from langchain.memory import ConversationBufferMemory
 from langchain import PromptTemplate, LLMChain
 
 import time
@@ -27,15 +28,12 @@ def ask():
     """Interactively ask questions to the language model."""
     print("Loading...")
 
-    # Load necessary values from environment
-    endpoint_url = os.getenv("ENDPOINT_URL")
-
     # Set up the language model and predictor
     llm = OctoAIEndpoint(
         endpoint_url="https://text.octoai.run/v1/chat/completions"
         ,
         model_kwargs={
-            "model": "llama-2-70b-chat-fp16",
+            "model": "mixtral-8x7b-instruct-fp16",
             "messages": [
                 {
                     "role": "system",
@@ -47,17 +45,46 @@ def ask():
         },
     )
 
+    chat_history = ConversationBufferMemory(memory_key="chat_history")
+
     # Define a prompt template
-    template = "{question}"
-    prompt = PromptTemplate(template=template, input_variables=["question"])
+    template = """
+You are now the guide of a turn by turn adventure set on earth, in the year 2050.
+The objective for the player of this adventure is to successfully land on planet Mars.
+You must navigate them through challenges, choices, and consequences,
+dynamically adapting the story based on the player's decisions.
+Your goal is to create a branching narrative experience where each choice
+leads to a new path, ultimately determining the player's fate.
+
+Here are some rules to follow at all costs:
+1. Be concise, wait at every turn for me to provide a human prompt
+2. On the first turn, let the player chose one of 3 character classes
+3. Always present the player 3 choices labeled A, B and C
+4. Have a few paths that lead to success
+5. Have some paths that lead to mission failure: in that case, conclude the text with: "The End.", I will search for this text to end the game
+6. Reach success or failure after 3 turns
+
+Here is the chat history, use this to understand what to say next: {chat_history}
+
+Human: {human_input}
+AI: """
+
+    prompt = PromptTemplate(
+        template=template,
+        input_variables=["chat_history", "human_input"]
+    )
 
     # Set up the language model chain
-    llm_chain = LLMChain(prompt=prompt, llm=llm)
+    llm_chain = LLMChain(
+        prompt=prompt,
+        llm=llm,
+        memory=chat_history
+    )
 
     # Clear the screen
     os.system("clear")
 
-    print("Ready! Let's start the conversation. Ask me anything!")
+    print("Ready! Let's start the game by typing \"start\"!")
     print("Press Ctrl+C to exit\n")
 
     try:
@@ -71,10 +98,12 @@ def ask():
             # Generate and print the response
             start_time = time.time()
 
-            response = llm_chain.run(user_prompt)
+            response = llm_chain.predict(human_input=user_prompt)
             end_time = time.time()
             elapsed_time = end_time - start_time
-            print(f"Response({round(elapsed_time, 1)} sec): {response}")
+            print(f"\nResponse({round(elapsed_time, 1)} sec): {response}")
+            if "The End." in response:
+                handle_exit()
     except KeyboardInterrupt:
         handle_exit()
 
