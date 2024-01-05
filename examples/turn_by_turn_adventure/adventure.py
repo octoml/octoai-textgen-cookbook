@@ -27,6 +27,9 @@ def ask():
     """Interactively ask questions to the language model."""
     print("Loading...")
 
+    # Load necessary values from environment
+    endpoint_url = os.getenv("ENDPOINT_URL")
+
     # Set up the language model and predictor
     llm = OctoAIEndpoint(
         endpoint_url="https://text.octoai.run/v1/chat/completions"
