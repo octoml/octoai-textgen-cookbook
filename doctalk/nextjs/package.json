@@ -18,7 +18,7 @@
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "react-loader-spinner": "^5.4.5",
+    "react-loader-spinner": "^6.1.6",
     "simplebar-react": "^3.2.4",
     "zustand": "^4.4.6"
   },
