@@ -1,6 +1,51 @@
-# LLM endpoint chat
+# How to build a simple chat bot with OctoAI and Langchain in Python
 
-A very basic chat bot using Langchain and OctoAI LLM (here we're using LLAMA2 70b chat)
+OctoAI LLMs such as Llama2-70b are powerful open source large language models (LLMs) that can be used to power your chat apps (e.g. a Q&A bot like the one we'll demonstrate here).
+
+In this example, you will build a dead-simple Python app powered by a Llama2-70b hosted on OctoAI and Langchain. The app runs on your terminal, all you need is a python interpreter, and you're ready to install the dependencies and get going!
+
+## What you will build
+
+This simple chat app is really the "hello world" of chat apps that you can build with Langchain. This app is great if you're a Python programmer, are just getting started with building your very first LLM app, and want a taste of the amazing benefits that Open Source LLMs on OctoAI present (customizability, control, ease of management, performance, scalability, costs etc.).
+
+We intentionally stripped a lot of complexity away in this example to give you a barebones Q&A bot that you can play with and ultimately extend for your own needs.
+
+All the app does is listen for a user prompt that gets entered via keyboard. Based on the promp, it'll rely on OctoAI's Llama2-70b to answer based on the pre-trained knowledge. We're not connecting the model to, say a vector data base to augment its knowledge here (we'll learn how to do this in other cookbook examples).
+
+In addition the LLM chain is devoid of memory - this means that if you ask two back to back questions where the second question relies on context from the first question (e.g. what country is Berlin in; list me a of the neighboring countries), the LLM won't be able to answer the second question based on that first question/answer. This is intentional as our aim here is to present a very simple bot! So each question should be asked as if you were starting a brand new conversation!
+
+The key to using OctoAI open source LLMs successfully in this Lanchain python app is to do the following:
+
+1. First import the OctoAI endpoint in Langchain via these two lines:
+
+```python
+from langchain.llms.octoai_endpoint import OctoAIEndpoint
+```
+
+You've probably been exposed to other LLM providers like OpenAI or Antropic; the idea with this line is that you can import the OctoAI LLM endpoint as a drop-in replacement to other LLM endpoints you might have used in the past!
+
+2. Then to instantiate your LLM that you'll be using in your chain, you have to enter the lines below:
+
+```python
+llm = OctoAIEndpoint(
+    endpoint_url="https://text.octoai.run/v1/chat/completions",
+    model_kwargs={
+        "model": "llama-2-70b-chat-fp16",
+        "messages": [
+            {
+                "role": "system",
+                "content": "Below is an instruction that describes a task. Write a response that appropriately completes the request.",
+            }
+        ],
+        "stream": False,
+        "max_tokens": 256,
+    },
+)
+```
+
+All we're doing here is: set the model to be Llama2-70b-chat (there are many other flavors of open source LLMs available on OctoAI that we invite you all to try out!), define the behavior of the LLM, and finally indicate that streaming mode is turned off, and that we'll cap output tokens at 256 to keep answers concise.
+
+Voila! With this bare-bones example you're ready to start building exciting LLM applications with Langchain and OctoAI!
 
 ## Instructions
 
