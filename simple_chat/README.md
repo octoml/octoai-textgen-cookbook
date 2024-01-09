@@ -14,6 +14,8 @@ All the app does is listen for a user prompt that gets entered via keyboard. Bas
 
 In addition the LLM chain is devoid of memory - this means that if you ask two back to back questions where the second question relies on context from the first question (e.g. what country is Berlin in; list the neighboring countries), the LLM won't be able to answer the second question based on that first question/answer context. This is intentional as our aim here is to build a very simple bot! So each question should be asked as if you were starting a brand new conversation!
 
+## What you will use
+
 The key to using OctoAI open source LLMs successfully in this Lanchain python app is to do the following:
 
 1. First import the OctoAI endpoint in Langchain via these two lines:
@@ -24,7 +26,7 @@ from langchain.llms.octoai_endpoint import OctoAIEndpoint
 
 You've probably been exposed to other LLM providers like OpenAI or Antropic; the idea with this line is that you can import the OctoAI LLM endpoint as a drop-in replacement to other LLM endpoints you might have used in the past!
 
-2. Then to instantiate your LLM that you'll be using in your chain, you have to enter the lines below:
+2. To instantiate the OctoAI LLM that you'll be using to power your chain, you have to add the lines below:
 
 ```python
 llm = OctoAIEndpoint(
@@ -44,6 +46,15 @@ llm = OctoAIEndpoint(
 ```
 
 All we're doing here is: set the model to be Llama2-70b-chat (there are many other flavors of open source LLMs available on OctoAI that we invite you all to try out!), define the behavior of the LLM, and finally indicate that streaming mode is turned off, and that we'll cap output tokens at 256 to keep answers concise.
+
+3. Set up the language model chain. From here on end it's all smooth sailing if you've used Langchain before. Initialize your language model chain and you're good to go!
+
+```python
+# Set up the language model chain
+llm_chain = LLMChain(prompt=prompt, llm=llm)
+```
+
+The prompt here refers to the string in which we've stored the user keyboard input.
 
 Voila! With this bare-bones example you're ready to start building exciting LLM applications with Langchain and OctoAI!
 
