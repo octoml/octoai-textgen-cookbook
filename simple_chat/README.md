@@ -1,6 +1,6 @@
 # How to build a simple chat bot with OctoAI and Langchain in Python
 
-OctoAI LLMs such as Llama2-70b are powerful open source large language models (LLMs) that can be used to power your chat apps (e.g. a Q&A bot like the one we'll demonstrate here).
+OctoAI LLMs such as Llama2-70b are very capable open source large language models (LLMs) that can be used to power your chat apps (e.g. a Q&A bot like the one we'll demonstrate here).
 
 In this example, you will build a dead-simple Python app powered by a Llama2-70b hosted on OctoAI and Langchain. The app runs on your terminal, all you need is a python interpreter, and you're ready to install the dependencies and get going!
 
@@ -12,7 +12,7 @@ We intentionally stripped a lot of complexity away in this example to give you a
 
 All the app does is listen for a user prompt that gets entered via keyboard. Based on the promp, it'll rely on OctoAI's Llama2-70b to answer based on the pre-trained knowledge. We're not connecting the model to, say a vector data base to augment its knowledge here (we'll learn how to do this in other cookbook examples).
 
-In addition the LLM chain is devoid of memory - this means that if you ask two back to back questions where the second question relies on context from the first question (e.g. what country is Berlin in; list me a of the neighboring countries), the LLM won't be able to answer the second question based on that first question/answer. This is intentional as our aim here is to present a very simple bot! So each question should be asked as if you were starting a brand new conversation!
+In addition the LLM chain is devoid of memory - this means that if you ask two back to back questions where the second question relies on context from the first question (e.g. what country is Berlin in; list the neighboring countries), the LLM won't be able to answer the second question based on that first question/answer context. This is intentional as our aim here is to build a very simple bot! So each question should be asked as if you were starting a brand new conversation!
 
 The key to using OctoAI open source LLMs successfully in this Lanchain python app is to do the following:
 
