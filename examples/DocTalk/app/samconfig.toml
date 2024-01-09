@@ -1,0 +1,9 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "askllama"
+resolve_s3 = true
+s3_prefix = "askllama"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["AskLlamaFunction=186900524924.dkr.ecr.us-east-1.amazonaws.com/askllama36ec2f38/askllamafunction7473d827repo"]
