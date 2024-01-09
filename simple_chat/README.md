@@ -2,11 +2,11 @@
 
 OctoAI LLMs such as Llama2-70b are very capable open source large language models (LLMs) that can be used to power your chat apps (e.g. a Q&A bot like the one we'll demonstrate here).
 
-In this example, you will build a dead-simple Python app powered by a Llama2-70b hosted on OctoAI and Langchain. The app runs on your terminal, all you need is a python interpreter, and you're ready to install the dependencies and get going!
+In this example, you will build a dead-simple Python app powered by a Llama2-70b hosted on OctoAI, and Langchain. The app runs on your terminal, all you need is a python interpreter, and you're ready to install the dependencies and get going!
 
 ## What you will build
 
-This simple chat app is really the "hello world" of chat apps that you can build with Langchain. This app is great if you're a Python programmer, are just getting started with building your very first LLM app, and want a taste of the amazing benefits that Open Source LLMs on OctoAI present (customizability, control, ease of management, performance, scalability, costs etc.).
+This simple chat app is really the "hello world" of chat apps that you can build with Langchain. This app is great if you're a Python programmer, are just getting started with building your very first LLM app, and want a taste of the amazing benefits that open source LLMs on OctoAI present (customizability, control, ease of management, performance, scalability, costs etc.).
 
 We intentionally stripped a lot of complexity away in this example to give you a barebones Q&A bot that you can play with and ultimately extend for your own needs.
 

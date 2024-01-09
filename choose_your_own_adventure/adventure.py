@@ -30,8 +30,7 @@ def ask():
 
     # Set up the language model and predictor
     llm = OctoAIEndpoint(
-        endpoint_url="https://text.octoai.run/v1/chat/completions"
-        ,
+        endpoint_url="https://text.octoai.run/v1/chat/completions",
         model_kwargs={
             "model": "mixtral-8x7b-instruct-fp16",
             "messages": [
