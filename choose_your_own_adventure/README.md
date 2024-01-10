@@ -12,6 +12,8 @@ This example was heavily inspired by the choose your own adventure game example 
 
 This turn by turn adventure game extend very basic Langchain app like the `simple_chat` app by introducing (1) prompt template engineering, (2) memory, and (3) a very capable open source model, Mixtral-8x7b that rivals in capabilities some of the proprietary LLMs.
 
+This app is great if you're a Python programmer, have just built your very first LLM app and want to take it up a notch in levels of fun and complexity!
+
 If you've ever tried to code up a turn by turn adventure game you'll appreciate how hard it can get due to the exponential growth in story paths at every turn of the adventure! It quickly becomes intractable. With LLMs we can code up a turn by turn adventure game in just a 100 lines of code!
 
 More impressive is that you can create whole new adventure stories and scenarios by editing just a couple of lines of code! For instance we've created this adventure game to be about being part of the first mission that will land on Mars. But in just a few lines of code you can change the setting and goals to be set in some fantasy world! Or any other setting your heart desires.
@@ -75,12 +77,14 @@ llm_chain = LLMChain(
 )
 ```
 
-### 3. Mixtral-8x7b.
+### 3. Mixtral-8x7b
 As of the time of this writing, Mixtral-8x7b is one of the more exciting and capable open source models out there [source](https://arxiv.org/abs/2401.04088). It's an instance of a Sparse Mixture of Experts (SMoE) language model.
 
 Mixtral is based on the architecture as Mistral-7b, with the difference that each layer is composed of 8 "experts". Based on the tokens that are coming in, a router network selects two experts to process the current state and combine their outputs. What does it mean? You're basically using a very polyvalent model that excels at mathematics, code generation, and multilingual benchmarks on top of being a very agreeable chat model!
 
 Note that we can instantiate a Mixtral model pretty easily with the OctoAI LLM endpoint by defining the model entry in the `model_kwargs` to be `mixtral-8x7b-instruct-fp16`.
+
+Another note: we're not using all of the amazing Mixture of Experts capabilities offered by Mixtral here - mainly we're using the LLM as a chat bot. But it's fine! We'll explore ways to explore all of the goodness that SMoE language models offer in other examples!
 
 ```python
 llm = OctoAIEndpoint(
