@@ -109,3 +109,7 @@ Here are a few tips to help you achieve the perfect fried egg:
 * Adjust the heat as needed to prevent the egg from cooking too quickly or too slowly.
 * Don't overcrowd the pan. Fry eggs one at a time to ensure they cook evenly.
 ```
+
+## License
+
+This project is licensed under the MIT License.
