@@ -150,7 +150,3 @@ C) The Engineer - excelling in designing and building Martian habitats, life sup
 
 Please enter A, B, or C to choose your character class.
 ```
-
-## Acknowlegements
-
-This example was inspired by the choose your own adventure game by techwithtim: https://github.com/techwithtim/AI-Choose-Your-Own-Adventure-Game
