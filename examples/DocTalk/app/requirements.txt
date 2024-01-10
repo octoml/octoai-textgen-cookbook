@@ -6,7 +6,6 @@ langchain-core==0.1.8
 octoai-sdk==0.2.0
 pinecone-datasets==0.6.2
 pinecone-client
-pinecone-client[grpc]
 playwright==1.40.0
 python-dotenv==1.0.0
 tiktoken==0.5.2
