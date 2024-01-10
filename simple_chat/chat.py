@@ -28,21 +28,20 @@ def ask():
     print("Loading...")
 
     # Set up the language model and predictor
-    llm = OctoAIEndpoint(
-        endpoint_url="https://text.octoai.run/v1/chat/completions"
-        ,
-        model_kwargs={
-            "model": "llama-2-70b-chat-fp16",
-            "messages": [
-                {
-                    "role": "system",
-                    "content": "Below is an instruction that describes a task. Write a response that appropriately completes the request.",
-                }
-            ],
-            "stream": False,
-            "max_tokens": 256,
-        },
-    )
+llm = OctoAIEndpoint(
+    endpoint_url="https://text.octoai.run/v1/chat/completions",
+    model_kwargs={
+        "model": "llama-2-70b-chat-fp16",
+        "messages": [
+            {
+                "role": "system",
+                "content": "Below is an instruction that describes a task. Write a response that appropriately completes the request.",
+            }
+        ],
+        "stream": False,
+        "max_tokens": 256,
+    },
+)
 
     # Define a prompt template
     template = "{question}"
