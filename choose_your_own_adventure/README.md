@@ -150,3 +150,7 @@ C) The Engineer - excelling in designing and building Martian habitats, life sup
 
 Please enter A, B, or C to choose your character class.
 ```
+
+## License
+
+This project is licensed under the MIT License.
