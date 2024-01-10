@@ -1,22 +1,17 @@
+# README
 
-README
-======
+## Project Overview
 
-Project Overview
-----------------
+This project is a RAG Python application that leverages various libraries such as `pinecone`, `langchain`, and `beautifulsoup4` to create a Chat application with the documentation pages of two products; Pinecone and OctoAI. The application demonstrates how to do document processing, embedding generation, and conversational retrieval using the OctoAI LLM and Embeddings models and Pinecone as a Vector DB. It is designed to be run both as a command-line interface (CLI) application and as an AWS Lambda function.
 
-This project is a RAG Python application that leverages various libraries such as `pinecone`, `langchain`, and `beautifulsoup4` to create a Chat application with the documentation pages of two products; Pinecone and OctoAI. The application demonstrates how to do  document processing, embedding generation, and conversational retrieval using the OctoAI LLM and Embeddings models and Pinecone as a Vector DB. It is designed to be run both as a command-line interface (CLI) application and as an AWS Lambda function.
+## Features
 
-Features
---------
+-   Load and process documents from specified URLs.
+-   Generate and use embeddings for text data.
+-   Leverage the OctoAI LLM endpoints for language understanding and processing.
+-   Compatible with AWS Lambda for serverless deployment.
 
-*   Load and process documents from specified URLs.
-*   Generate and use embeddings for text data.
-*   Leverage the OctoAI LLM endpoints for language understanding and processing.
-*   Compatible with AWS Lambda for serverless deployment.
-
-Prerequisites
--------------
+## Prerequisites
 
 Before running this application, you need to have Python installed on your system along with the application dependencies. You can install these packages using pip:
 
@@ -24,38 +19,46 @@ Before running this application, you need to have Python installed on your syste
 
 Additionally, you need to set up a `.env` file in the root of the project with the necessary environment variables.
 
-* To get an OctoAI API Token: please follow the steps here https://docs.octoai.cloud/docs/how-to-create-an-octoai-access-token
-* To get a Pinecone API Key: please follow the steps here https://docs.pinecone.io/docs/quickstart
+-   To get an OctoAI API Token: please follow the steps here https://docs.octoai.cloud/docs/how-to-create-an-octoai-access-token
+-   To get a Pinecone API Key: please follow the steps here https://docs.pinecone.io/docs/quickstart
 
+### Playwright
 
-Environment Variables
----------------------
+The Langchain document loader we are using requires the playwright module. It needs to be initialized before first use. This can be done with the following command:
 
-Make sure you have the `.env` file in the project root directory and add the blank environment variables values to it such as:
+```bash
+python3 -m playwright install
+```
 
-`PINECONE_API_KEY=your_pinecone_api_key`
+## Environment Variables
 
-`OCTOAI_TOKEN=your_octoai_token`
+Make sure you have the `.env` file in the project's `app` directory, following this template:
 
-Replace the placeholder values with your actual API keys and endpoints.
+```
+PINECONE_API_KEY=YOUR-TOKEN
+PINECONE_ENV=gcp-starter
+OCTOAI_TOKEN=YOUR-TOKEN
+OCTOAI_ENDPOINT_URL="https://text.octoai.run/v1/chat/completions"
+OCTOAI_MODEL="llama-2-13b-chat-fp16"
+```
 
-Running the Application
------------------------
+Replace the placeholder values with your actual API keys and endpoints. Do remember to update the `PINECONE_ENV` variable if you are using an existing Pinecone environment.
+
+## Running the Application
 
 ### As a Command-Line Interface
 
 To run the application via CLI, execute the main script:
 
-
 `python main.py`
 
 You will be prompted to enter the data source and your query. After providing the necessary inputs, the application will process the request and display the output.
 
-Note: The first time you run the application, you will hit a couple of small issues shown below. You need to run the command to install playwright separately, then run the application again. It will now take several minutes to populate the pinecone index the first time. Subsequent runs should be very fast.
+Note: The first time you run the application it will take several minutes to populate the pinecone index the first time. Subsequent runs should be very fast.
 
 ![](media/image3.png)
 
-* This code was tested on MacOS and Ubuntu
+-   This code was tested on MacOS and Ubuntu
 
 ## As an AWS Lambda Function
 
@@ -63,7 +66,7 @@ The application can also be deployed as an AWS Lambda function. To do so, packag
 
 ### Deploying the Application to AWS Lambda as a Container Image
 
-####  Prerequisites:
+#### Prerequisites:
 
 -   AWS Account
 
@@ -73,18 +76,18 @@ The application can also be deployed as an AWS Lambda function. To do so, packag
 
 -   AWS SAM CLI installed (see https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
 
-#### *Using AWS SAM CLI and Docker:*
+#### _Using AWS SAM CLI and Docker:_
 
 To deploy this Python application to AWS Lambda using a container image,
 you will need to follow these steps:
 
-*Prepare the Dockerfile:* Ensure the Dockerfile is set up correctly to
+_Prepare the Dockerfile:_ Ensure the Dockerfile is set up correctly to
 build a container image suitable for AWS Lambda. This involves
 specifying the base image, copying your application code into the
 container, installing any dependencies, and setting the entry point for
 your Lambda function.
 
-*Build the Container Image:* Use AWS SAM CLI to build your container
+_Build the Container Image:_ Use AWS SAM CLI to build your container
 image. The command would generally be:
 
 `sam build --use-container`
@@ -94,8 +97,7 @@ function locally using SAM
 
 `sam local invoke`
 
-
-#### *Deploy to AWS Lambda:*
+#### _Deploy to AWS Lambda:_
 
 First, you need to upload your container image to Amazon Elastic
 Container Registry (ECR). You can do this using the Docker CLI.
@@ -108,17 +110,16 @@ packaging your application and deploying it using a SAM template:
 `sam deploy --template-file packaged.yaml --stack-name --capabilities
 CAPABILITY_IAM`
 
-
 Configure Lambda and API Gateway: After deployment, you need to
 configure your Lambda function in the AWS Management Console
 
-#### 
+####
 
-#### 
+####
 
-#### *Increase the function timeout, and scale up the resource specs*
+#### _Increase the function timeout, and scale up the resource specs_
 
-####  
+####
 
 From the lambda function management console, go to General Configuration
 and change the Timeout to 15 mins. Also since the compute resources are
@@ -127,23 +128,21 @@ is a good idea to increase the Memory to 2048 MB
 
 ![](media/image1.png)
 
-#### *Add configuration variables*
+#### _Add configuration variables_
 
 ![](media/image2.png)
 
-#### *Create API Gateway*
+#### _Create API Gateway_
 
 Follow the steps described in this article below or use the python
 script at `api-gateway.py` to create an API gateway for the lambda
 function that allows clients to call it over HTTPS
 https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html#api-gateway-create-api-as-simple-proxy-for-lambda-build
 
-Contributing
-------------
+## Contributing
 
 Contributions to this project are welcome. Please ensure that your code adheres to the project's coding standards and includes appropriate tests.
 
-License
--------
+## License
 
 This project is licensed under the MIT License.

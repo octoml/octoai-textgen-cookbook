@@ -34,8 +34,8 @@ PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY", "PINECONE_API_KEY")
 PINECONE_ENV = os.environ.get("PINECONE_ENV", "PINECONE_ENV")
 PINECONE_INDEX_NAME = os.environ.get("PINECONE_INDEX", "rag")
 OCTOAI_TOKEN = os.environ.get("OCTOAI_TOKEN")
-OCTOAI_ENDPOINT = os.environ.get("ENDPOINT_URL")
-OCTOAI_MODEL = os.environ.get("MODEL")
+OCTOAI_ENDPOINT_URL = os.environ.get("OCTOAI_ENDPOINT_URL")
+OCTOAI_MODEL = os.environ.get("OCTOAI_MODEL")
 
 if OCTOAI_TOKEN is None:
     raise ValueError("OCTOAI_TOKEN environment variable not set.")
@@ -186,7 +186,7 @@ def init_pinecone_index(index_name=PINECONE_INDEX_NAME):
         while not pinecone.describe_index(index_name).status["ready"]:
             time.sleep(1)
 
-    #index = pinecone.Index(index_name)
+    # index = pinecone.Index(index_name)
 
     # print(index.describe_index_stats())
 
@@ -207,7 +207,7 @@ def get_pinecone_vector_store(index_name=PINECONE_INDEX_NAME):
 def get_language_models():
     return OctoAIEndpoint(
         octoai_api_token=OCTOAI_TOKEN,
-        endpoint_url=OCTOAI_ENDPOINT,
+        endpoint_url=OCTOAI_ENDPOINT_URL,
         model_kwargs={
             "messages": [
                 {
@@ -225,8 +225,14 @@ def execute_and_print(llm, retriever, question, model_name):
     start_time = time.time()
     openai_usage_str = ""
 
-    qa = ConversationalRetrievalChain.from_llm(llm, retriever, max_tokens_limit=2000)
-    response = qa({"question": question, "chat_history": []})
+    try:
+        qa = ConversationalRetrievalChain.from_llm(
+            llm, retriever, max_tokens_limit=2000
+        )
+        response = qa({"question": question, "chat_history": []})
+    except Exception as e:
+        print(e)
+        exit(1)
 
     end_time = time.time()
     result = f"\n{model_name}\n"
@@ -249,7 +255,12 @@ def predict(data_source="octoai_docs", prompt="how to avoid cold starts?"):
     elif "octo" in data_source.lower():
         db_name = OCTOAI_DB_NAME
 
-    llm_llama2 = get_language_models()
+    try:
+        llm_llama2 = get_language_models()
+    except Exception as e:
+        print("Error initializing language models")
+        print(e)
+        exit(1)
 
     index_name = PINECONE_INDEX_NAME
     init_pinecone_index(index_name=index_name)
@@ -258,9 +269,8 @@ def predict(data_source="octoai_docs", prompt="how to avoid cold starts?"):
     if (
         index.describe_index_stats()["total_vector_count"] < 10
     ):  # if index was not populated
-        
         print("Populating index for the first time...This might take several minutes")
-        
+
         url_file = (
             OCTOAI_JSON_FILE_PATH
             if db_name == OCTOAI_DB_NAME
