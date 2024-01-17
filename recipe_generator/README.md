@@ -5,22 +5,23 @@
 This is a Python command line interface (CLI) application that takes as inputs a list of ingredients from the user and responds with a recipe for a dish that can be prepared from the provided list of ingredients. It demonstrates the ease with which large language models (LLM) powered logic and reasoning can be integrated into applications to deliver engaging experiences to end users. The application uses the OctoAI Python SDK and the Llama 2 13B Chat model on the OctoAI Text Gen Solution.
 
 ## Features
-	•	OctoAI Python sdk (octoai-sdk)
-	•	Text generation using Llama 2, using the OpenAI chat completions API
-	•	Use of the OctoAI LLM endpoints for language understanding and processing.
+
+* OctoAI Python sdk (octoai-sdk)
+* Text generation using Llama 2, using the OpenAI chat completions API
+* Use of the OctoAI LLM endpoints for language understanding and processing.
 
 ## Instructions
 
 Before running this application, you need to have Python installed on your system along with the application dependencies. You can install these packages using pip and python virtual environment.
 
-- Set up python virtual environment
+Set up python virtual environment
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-- Install the pip requirements in your local python virtual environment
+Install the pip requirements in your local python virtual environment
 
 ```bash
 python3 -m pip install --upgrade pip
@@ -32,6 +33,7 @@ python3 -m pip install -r requirements.txt
 To run our example app, there are two simple steps to take:
 
 - Get an OctoAI API token by following [these instructions](https://docs.octoai.cloud/docs/how-to-create-an-octoai-access-token).
+
 - Paste your API token in the file called `.env` in this directory.
 
 ```bash
@@ -47,7 +49,7 @@ To run the application in your terminal, execute the main script:
 python3 recipe_generator.py
 ```
 
-- Example usage:
+### Example usage:
 ```text
 Welcome to OctoFridge!
 Enter the ingredients in your fridge in a comma separated list and hit <enter> : eggs, butter, sugar, lemon, flour, salt
