@@ -36,7 +36,7 @@ python3 -m pip install -r requirements.txt
 
 To run our example app, there are two simple steps to take:
 
-- Get an OctoAI API token by following [these instructions](https://docs.octoai.cloud/docs/how-to-create-an-octoai-access-token).
+- Get an OctoAI API token by following [these instructions](https://octo.ai/docs/getting-started/how-to-create-octoai-api-token/).
 
 - Paste your API token in the file called `.env` in this directory.
 
@@ -44,7 +44,7 @@ To run our example app, there are two simple steps to take:
 OCTOAI_API_TOKEN=<your key here>
 ```
 
-### Running the Application
+### Running the application
 
 To run the application in your terminal, execute the main script:
 
@@ -53,7 +53,7 @@ To run the application in your terminal, execute the main script:
 python3 recipe_generator.py
 ```
 
-### Example usage:
+### Example usage
 ```text
 Welcome to OctoFridge!
 Enter the ingredients in your fridge in a comma separated list and hit <enter> : eggs, butter, sugar, lemon, flour, salt

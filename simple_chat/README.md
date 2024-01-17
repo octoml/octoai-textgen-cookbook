@@ -77,19 +77,21 @@ python3 -m pip install -r requirements.txt
 
 To run our example app, there are two simple steps to take:
 
-- Get an OctoAI API token by following [these instructions](https://docs.octoai.cloud/docs/how-to-create-an-octoai-access-token).
+- Get an OctoAI API token by following [these instructions](https://octo.ai/docs/getting-started/how-to-create-octoai-api-token/).
 - Paste your API token in the file called `.env` in this directory.
 
 ```bash
 OCTOAI_API_TOKEN=<your key here>
 ```
 
-- Run `chat.py` script to chat with the LLM hosted endpoint.
+### Running the application
+
+Run `chat.py` script to chat with the LLM hosted endpoint.
 ```bash
 python3 chat.py
 ```
 
-- Example usage:
+### Example usage
 
 ```
 Prompt: what is the capital of washington state
