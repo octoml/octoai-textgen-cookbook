@@ -1,17 +1,14 @@
-import os
 from octoai.client import Client
 
-print("Welcome to OctoFridge!")
-ingredients = input("Enter the ingredients in your fridge in a comma separated list and hit <enter> : ")
 
-def textgen(model_name, \
-            prompt, \
-            role = "user", \
-            temperature = 1.0, \
-            top_p = 1.0, \
-            stream = False, \
-            max_tokens = 1024, \
-            presence_penalty = 0.0, \
+def textgen(model_name,
+            prompt,
+            role = "user",
+            temperature = 1.0,
+            top_p = 1.0,
+            stream = False,
+            max_tokens = 1024,
+            presence_penalty = 0.0,
             frequency_penalty = 0.0):
 
     client = Client()
@@ -34,6 +31,15 @@ def textgen(model_name, \
     # return message
     return completion.choices[0].message.content
 
-model_name = "llama-2-13b-chat-fp16"    
-recipe = textgen(model_name, f"Please create a recipe using the following ingredients: {ingredients}")
-print(recipe)
+
+if __name__ == "__main__":
+    # This code is used to interactively ask for a list of comma-separated ingredients.
+    # It uses the OctoAI-hosted large language model to generate a recipe.
+    print("Welcome to OctoFridge!")
+    ingredients = input("Enter the ingredients in your fridge in a comma separated list and hit <enter> : ")
+
+    recipe = textgen(
+        "llama-2-13b-chat-fp16",
+        f"Please create a recipe using the following ingredients: {ingredients}"
+    )
+    print("\n{}".format(recipe))
