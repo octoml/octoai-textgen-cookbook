@@ -1,8 +1,6 @@
 import os
 from octoai.client import Client
 
-octoai_token = os.environ.get('OCTOAI_API_TOKEN')
-
 print("Welcome to OctoFridge!")
 ingredients = input("Enter the ingredients in your fridge in a comma separated list and hit <enter> : ")
 
@@ -16,7 +14,7 @@ def textgen(model_name, \
             presence_penalty = 0.0, \
             frequency_penalty = 0.0):
 
-    client = Client(token=octoai_token)
+    client = Client()
     completion = client.chat.completions.create(
         model = model_name,
         messages = [
