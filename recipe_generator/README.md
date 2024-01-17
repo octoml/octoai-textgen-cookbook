@@ -1,6 +1,10 @@
 # How to build a food recipe generator with OctoAI SDK and Llama2 LLM
 
-This is a Python command line interface (CLI) application that takes as inputs a list of ingredients from the user and responds with a recipe for a dish that can be prepared from the provided list of ingredients. It demonstrates the ease with which large language models (LLM) powered logic and reasoning can be integrated into applications to deliver engaging experiences to end users. The application uses the OctoAI Python SDK and the Llama 2 13B Chat model on the OctoAI Text Gen Solution.
+This is a Python command line interface (CLI) application that takes a list of ingredients from the user as inputs and responds with a recipe for a dish that can be prepared from the provided list of ingredients. 
+
+It demonstrates the ease with which large language models (LLM) powered logic and reasoning can be integrated into applications to deliver engaging experiences to end users. 
+
+The application uses the OctoAI Python SDK and the Llama 2 13B Chat model on the OctoAI Text Gen Solution.
 
 ## Features
 
