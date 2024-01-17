@@ -40,7 +40,7 @@ To run our example app, there are two simple steps to take:
 OCTOAI_API_TOKEN=<your key here>
 ```
 
-## Running the Application
+### Running the Application
 
 To run the application in your terminal, execute the main script:
 
