@@ -19,7 +19,7 @@ Before running this application, you need to have Python installed on your syste
 
 Additionally, you need to set up a `.env` file in the root of the project with the necessary environment variables.
 
--   To get an OctoAI API Token: please follow the steps here https://docs.octoai.cloud/docs/how-to-create-an-octoai-access-token
+-   To get an OctoAI API Token: please follow the steps here https://octo.ai/docs/getting-started/how-to-create-octoai-api-token
 -   To get a Pinecone API Key: please follow the steps here https://docs.pinecone.io/docs/quickstart
 
 ### Playwright
