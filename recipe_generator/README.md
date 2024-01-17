@@ -8,7 +8,7 @@ The application uses the OctoAI Python SDK and the Llama 2 13B Chat model on the
 
 ## Features
 
-This example doesn't rely on Langchain and uses the OctoAI SDK directly which is OpenAI API compatible! Here are the features that you'll be using to build your recipe generator.
+This example doesn't rely on Langchain and uses the OctoAI SDK directly, which is OpenAI API compatible! Here are the features that you'll be using to build your recipe generator:
 
 * OctoAI Python sdk (octoai-sdk)
 * Text generation using Llama 2, using the OpenAI chat completions API
