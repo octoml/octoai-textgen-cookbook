@@ -1,0 +1,19 @@
+{
+  "name": "pdf-summarizer-nodejs",
+  "version": "0.0.1",
+  "description": "Summarizes PDF documents using AI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octoai/client": "^0.4.1",
+    "dotenv": "^16.3.1",
+    "pdf-parse": "^1.1.1",
+    "prompts": "^2.4.2",
+    "yargs": "^17.7.2"
+  }
+}
