@@ -1,5 +1,5 @@
 # PDF Summarizer - Node JS 
-This is a node js application that allows users to upload pdf files and summarize the content of the pdf file. The application uses a machine learning algorithm to summarize the pdf file.
+This is a node js application that allows users to upload pdf files and summarize the content of the pdf file. The application uses the OctoAI Text Gen Solution to run the large language model (LLM) inferences that power the PDF summarization. It demonstrates the ability to easily use LLMs to implement intelligent natural language workflows.
 
 <img src="preview.jpg"  />
 
