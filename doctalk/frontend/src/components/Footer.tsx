@@ -8,7 +8,7 @@ const Footer = () => {
           <ul>
             <li className="with-icon">
               <a
-                href="https://github.com/octoml/octoai-apps/tree/main/examples/smartflakes/nextjs"
+                href="https://github.com/octoml/octoai-textgen-cookbook/tree/main/doctalk/frontend"
                 target="_blank"
               >
                 <Image
