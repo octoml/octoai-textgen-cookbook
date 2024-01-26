@@ -1,0 +1,47 @@
+.interactive {
+  @apply flex flex-col gap-11 sm:gap-16;
+  &.condensed {
+    @apply gap-6;
+  }
+  #prompt {
+    @apply flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-0;
+    label {
+      @apply flex flex-col items-start gap-2 transition-spacing sm:w-full sm:gap-6;
+    }
+    p {
+      @apply text-2xs transition-font-size  sm:text-xs;
+    }
+    button {
+      @apply mr-auto flex-shrink-0 sm:rounded-l-none sm:border-l-0;
+    }
+    input {
+      @apply sm:rounded-r-none sm:border-r-0;
+    }
+    &.lg {
+      input {
+        @apply p-4 text-2xs font-normal;
+      }
+      button {
+        @apply py-[19px];
+      }
+    }
+  }
+  .result {
+    @apply relative flex flex-col;
+    img {
+      @apply rounded border border-gray-300 shadow-light dark:border-gray-600 dark:shadow-dark;
+    }
+    &.chat {
+      @apply gap-6;
+    }
+  }
+  #error-banner {
+    @apply container fixed bottom-0 left-0 w-full max-w-none z-50;
+    & > .content {
+      @apply relative mx-auto w-full max-w-[50rem] rounded border bg-orange px-4 py-3 pr-12;
+      button {
+        @apply flex transition-colors hover:fill-gray-700;
+      }
+    }
+  }
+}

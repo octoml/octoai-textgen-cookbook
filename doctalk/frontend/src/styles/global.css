@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Lexend";
+  src:
+    url("/fonts/Lexend-Regular.woff2") format("woff2"),
+    url("/fonts/Lexend-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexend";
+  src:
+    url("/fonts/Lexend-Medium.woff2") format("woff2"),
+    url("/fonts/Lexend-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexend";
+  src:
+    url("/fonts/Lexend-SemiBold.woff2") format("woff2"),
+    url("/fonts/Lexend-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexend";
+  src:
+    url("/fonts/Lexend-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Lexend-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  @apply bg-gradient-light text-black-600 dark:bg-gradient-dark dark:text-gray-50;
+}
+
+html,
+body {
+  @apply min-h-screen;
+}
+
+body {
+  @apply relative flex flex-col;
+}
+
+.container {
+  @apply px-6 py-2 transition-spacing sm:px-8;
+}
+
+main.container {
+  @apply mx-auto mb-16 flex max-w-[50rem] flex-col gap-8 sm:mt-4 sm:px-16;
+  &.flex-height {
+    @apply justify-between flex-grow;
+    & > div:first-child {
+      @apply pb-8;
+    }
+  }
+}
+
+button {
+  @apply mt-2 block w-auto rounded bg-gradient-orange from-orange to-orange px-4  py-9px shadow-light hover:bg-gradient-to-r focus-visible:bg-gradient-to-r dark:bg-gradient-teal dark:from-blue-500 dark:to-blue-500 dark:text-black-900 dark:shadow-dark dark:hover:bg-gradient-to-r sm:mt-0;
+}
+
+a {
+  @apply hover:underline focus-visible:underline;
+}
+
+input {
+  @apply w-full rounded border border-gray-300 px-3 py-2 shadow-light dark:border dark:border-gray-600 dark:bg-white dark:bg-opacity-5 dark:shadow-dark;
+}
+
+.credit,
+.disclaimer {
+  @apply text-center mt-3 text-gray-600 dark:text-gray-400;
+  a {
+    @apply text-blue-500;
+  }
+}
+
+.disclaimer {
+  @apply italic;
+}

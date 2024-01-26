@@ -1,0 +1,9 @@
+.hero {
+  @apply pt-6;
+  h1 {
+    @apply text-sm transition-font-size sm:text-xl lg:text-2xl;
+    span {
+      @apply bg-gradient-orange bg-clip-text font-extrabold !text-transparent dark:bg-gradient-teal;
+    }
+  }
+}

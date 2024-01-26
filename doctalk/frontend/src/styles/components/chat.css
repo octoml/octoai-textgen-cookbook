@@ -1,0 +1,49 @@
+.chat-bubble {
+  @apply rounded border border-gray-300 px-4 py-2 dark:border-gray-600 max-w-[85%] sm:max-w-[80%] transition-sizing text-wrap break-words;
+  &.primary {
+    @apply ml-auto bg-blue-100 dark:bg-blue-900;
+  }
+  &.secondary {
+    @apply mr-auto bg-gray-100 dark:bg-gray-900;
+  }
+  p + p {
+    @apply mt-4;
+  }
+  ul,
+  ol {
+    @apply pl-10 mt-2 mb-4;
+    li + li {
+      @apply mt-2;
+    }
+  }
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+  a {
+    @apply underline;
+  }
+  h1 {
+    @apply text-xl;
+  }
+  h2 {
+    @apply text-lg;
+  }
+  h3 {
+    @apply text-md;
+  }
+  h4 {
+    @apply text-sm;
+  }
+  h5 {
+    @apply text-xs;
+  }
+  h6 {
+    @apply text-2xs;
+  }
+  code {
+    @apply bg-gray-800 text-white p-[2px] dark:bg-gray-600 text-wrap break-words;
+  }
+}
