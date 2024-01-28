@@ -214,7 +214,10 @@ if __name__ == "__main__":
 
         for doc_name in glob.glob(os.path.join(args.docs_path, "*.pdf")):
             document = load_parse_pdf(doc_name)
-            print(benchmark_one(document, doc_name, model)[0])
+            stats, summary = benchmark_one(document, doc_name, model)
+            print(stats)
+            print("Summarization cost:", total_cost(stats), "USD")
+            print("-*--*-" * 12)
     else:
         import gradio as gr
 
