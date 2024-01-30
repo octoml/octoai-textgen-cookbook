@@ -5,12 +5,13 @@ import time
 import pinecone
 import pandas as pd
 from bs4 import BeautifulSoup
-from langchain.llms.octoai_endpoint import OctoAIEndpoint
+from langchain_community.llms.octoai_endpoint import OctoAIEndpoint
 from langchain.chains import ConversationalRetrievalChain
-from langchain.document_loaders import AsyncChromiumLoader
-from langchain.document_transformers import BeautifulSoupTransformer
-from langchain.embeddings import OctoAIEmbeddings
-from langchain.vectorstores import Pinecone
+from langchain.chains import retrieval_qa
+from langchain_community.document_loaders import AsyncChromiumLoader
+from langchain_community.document_transformers import BeautifulSoupTransformer
+from langchain_community.embeddings import OctoAIEmbeddings
+from langchain_community.vectorstores import Pinecone
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
 from dotenv import load_dotenv
@@ -23,8 +24,7 @@ OCTOAI_JSON_FILE_PATH = "data/octoai_docs_urls.json"
 PINECONE_JSON_FILE_PATH = "data/pinecone_docs_urls.json"
 OCTOAI_DB_NAME = "pinecone_octoai_docs"
 PINECONE_DB_NAME = "pinecone_pinecone_docs"
-OCTOAI_EMBED_ENDPOINT_URL = "https://instructor-large-f1kzsig6xes9.octoai.run/predict"
-BATCH_SIZE = 100
+BATCH_SIZE = 1
 CHUNK_SIZE = 1300
 CHUNK_OVERLAP = 5
 PHRASE_LENGTH = 30
@@ -41,7 +41,7 @@ if OCTOAI_TOKEN is None:
     raise ValueError("OCTOAI_TOKEN environment variable not set.")
 
 # Set cache directory for transformers
-os.environ["TRANSFORMERS_CACHE"] = TRANSFORMERS_CACHE_DIR
+os.environ["HF_HOME"] = TRANSFORMERS_CACHE_DIR
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -106,7 +106,7 @@ def process_text_files(filepath="data/shakespeare.txt"):
 
 def get_octo_embed_model():
     return OctoAIEmbeddings(
-        endpoint_url=OCTOAI_EMBED_ENDPOINT_URL,
+        endpoint_url="https://text.octoai.run/v1/embeddings",
         octoai_api_token=OCTOAI_TOKEN,
     )
 
@@ -118,7 +118,7 @@ def get_embeddings(db_name=OCTOAI_DB_NAME):
 
 def add_pinecone_embeddings(data, index_name):
     embed = get_octo_embed_model()
-    batch_size = 100
+    batch_size = BATCH_SIZE
     for i in range(0, len(data), batch_size):
         i_end = min(len(data), i + batch_size)
         # get batch of data
@@ -179,7 +179,7 @@ def init_pinecone_index(index_name=PINECONE_INDEX_NAME):
         pinecone.create_index(
             name=index_name,
             metric="dotproduct",
-            dimension=768,  # instructor-large dimension
+            dimension=1024,  # GTE-large dimension
         )
 
         # wait for index to be initialized
