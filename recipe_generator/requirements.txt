@@ -1,1 +1,1 @@
-octoai-sdk
+octoai-sdk==0.8.2
