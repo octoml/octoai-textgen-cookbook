@@ -20,7 +20,7 @@ SYSTEM_PROMPT = "You are a helpful financial and accounting specialist assistant
 
 COSTS = {"gpt3.5-new": {"input": 0.0005, "output": 0.0015},
          "gpt3.5": {"input": 0.001, "output": 0.002},
-         "mixtral": {"input": 0.0002, "output": 0.0005},
+         "mixtral": {"input": 0.0003, "output": 0.0005},
          "gpt4": {"input": 0.01, "output": 0.03},
          "mistral": {"input": 0.0001, "output": 0.00025},
          "llama2": {"input": 0.0006, "output": 0.0019}}
