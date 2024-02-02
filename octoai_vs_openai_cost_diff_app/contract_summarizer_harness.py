@@ -18,7 +18,8 @@ load_dotenv()
 SYSTEM_PROMPT = "You are a helpful financial and accounting specialist assistant. You will summarize any given document into 10 bullet points. Please note that your work will be reviewed, if done right, you will get a 100 USD performance bonus per summary."
 
 
-COSTS = {"gpt3.5": {"input": 0.0005, "output": 0.0015},
+COSTS = {"gpt3.5-new": {"input": 0.0005, "output": 0.0015},
+         "gpt3.5": {"input": 0.001, "output": 0.002},
          "mixtral": {"input": 0.0002, "output": 0.0005},
          "gpt4": {"input": 0.01, "output": 0.03},
          "mistral": {"input": 0.0001, "output": 0.00025},
@@ -93,7 +94,10 @@ class OpenAIModel(AbstactModel):
             }
         self.tokenizer = tiktoken.get_encoding("cl100k_base")
         if self.slug_model_name == "gpt3.5":
-            self.model_name = "gpt-3.5-turbo-16k"
+            self.model_name = "gpt-3.5-turbo-1106"
+            self.ctx_window_size = 16385
+        if self.slug_model_name == "gpt3.5-new":
+            self.model_name = "gpt-3.5-turbo-0125"
             self.ctx_window_size = 16385
         elif self.slug_model_name == "gpt4":
             self.model_name = "gpt-4-turbo"
@@ -199,7 +203,7 @@ def as_html_diff_summary(lhs_stats_dict, rhs_stats_dict):
 if __name__ == "__main__":  
     import argparse
 
-    model_choices = ["gpt4", "gpt3.5", "llama2", "mixtral", "mistral"]
+    model_choices = ["gpt4", "gpt3.5", "gpt3.5-new", "llama2", "mixtral", "mistral"]
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--use_model", choices=model_choices)
@@ -239,7 +243,7 @@ if __name__ == "__main__":
             document_content = gr.File()
 
             octoai_model_pick = gr.Dropdown(value="mixtral", label="OctoAI Model", show_label=True, choices=["llama2-70b", "mixtral", "mistral-7b"])
-            openai_model_pick = gr.Dropdown(value="gpt3.5", label="OpenAI Model", show_label=True, choices=["gpt4", "gpt3.5"])
+            openai_model_pick = gr.Dropdown(value="gpt3.5", label="OpenAI Model", show_label=True, choices=["gpt4", "gpt3.5-new", "gpt3.5"])
 
             summarize_btn = gr.Button(value="Summarize")
 
