@@ -1,0 +1,7 @@
+python-dotenv==1.0.1
+octoai-sdk==0.8.3
+langchain-community==0.0.17
+langchain-core==0.1.18
+langchain==0.1.5
+faiss-cpu==1.7.4
+tiktoken==0.5.2
