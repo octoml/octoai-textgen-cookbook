@@ -67,7 +67,7 @@ def ask():
             # Generate and print the response
             start_time = time.time()
 
-            response = llm_chain.run(user_prompt)
+            response = llm_chain.invoke(user_prompt)
             end_time = time.time()
             elapsed_time = end_time - start_time
             print(f"Response({round(elapsed_time, 1)} sec): {response}")
