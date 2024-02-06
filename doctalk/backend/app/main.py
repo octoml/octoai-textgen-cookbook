@@ -24,7 +24,7 @@ OCTOAI_JSON_FILE_PATH = "data/octoai_docs_urls.json"
 PINECONE_JSON_FILE_PATH = "data/pinecone_docs_urls.json"
 OCTOAI_DB_NAME = "pinecone_octoai_docs"
 PINECONE_DB_NAME = "pinecone_pinecone_docs"
-BATCH_SIZE = 1
+BATCH_SIZE = 1 # Needs to be 1 for GTE model for now
 CHUNK_SIZE = 1300
 CHUNK_OVERLAP = 5
 PHRASE_LENGTH = 30
@@ -174,21 +174,16 @@ def init_pinecone_index(index_name=PINECONE_INDEX_NAME):
     )
 
     if not index_name in pinecone.list_indexes():
-        # pinecone.delete_index(index_name)
         # we create a new index
         pinecone.create_index(
             name=index_name,
-            metric="dotproduct",
+            metric="cosine",
             dimension=1024,  # GTE-large dimension
         )
 
         # wait for index to be initialized
         while not pinecone.describe_index(index_name).status["ready"]:
             time.sleep(1)
-
-    # index = pinecone.Index(index_name)
-
-    # print(index.describe_index_stats())
 
     return index_name
 
@@ -216,7 +211,7 @@ def get_language_models():
                 }
             ],
             "model": OCTOAI_MODEL,
-            "max_tokens": 200,
+            "max_tokens": 512,
         },
     )
 
@@ -269,7 +264,7 @@ def predict(data_source="octoai_docs", prompt="how to avoid cold starts?"):
     if (
         index.describe_index_stats()["total_vector_count"] < 10
     ):  # if index was not populated
-        print("Populating index for the first time...This might take several minutes")
+        print("Populating index for the first time... This might take several minutes")
 
         url_file = (
             OCTOAI_JSON_FILE_PATH
@@ -319,4 +314,4 @@ if __name__ == "__main__":
 
     context = {}
     response = handler(event, context)
-    print("Response:", response)
+    print("Response:", (json.loads(response["body"])["message_llm1"]))
