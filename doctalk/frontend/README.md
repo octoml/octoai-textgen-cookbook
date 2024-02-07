@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a Next.js frontend for the Python backend available in this repo. It uses the AWS Lambda function option mentioned there to output a RAG Chat Application with the documentation of two products: Pinecone and OctoAI. The frontend is currently hardcoded to use the Pinecone docs, but that can be swapped easily for your own RAG dataset.
+This is a Next.js frontend for the Python backend available in this repo. It uses the AWS Lambda function option mentioned there to output a RAG Chat Application with the documentation of two products: Pinecone and OctoAI.
 
 ## Features
 
