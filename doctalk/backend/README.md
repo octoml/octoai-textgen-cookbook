@@ -85,17 +85,13 @@ _Prepare the Dockerfile:_ Ensure the Dockerfile is set up correctly to
 build a container image suitable for AWS Lambda. This involves
 specifying the base image, copying your application code into the
 container, installing any dependencies, and setting the entry point for
-your Lambda function.
+your Lambda function. We've provided you with a Dockerfile that meets
+the requirements stated above so you can edit it.
 
 _Build the Container Image:_ Use AWS SAM CLI to build your container
-image. The command would generally be:
+image. Run the following command from the `app/` directory:
 
 `sam build --use-container`
-
-Test Locally (Optional): Before deploying, you can test your Lambda
-function locally using SAM
-
-`sam local invoke`
 
 #### _Deploy to AWS Lambda:_
 
