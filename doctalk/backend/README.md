@@ -98,13 +98,17 @@ image. Run the following command from the `app/` directory:
 First, you need to upload your container image to Amazon Elastic
 Container Registry (ECR). You can do this using the Docker CLI.
 
-Then, use AWS SAM CLI to deploy your application. This involves
-packaging your application and deploying it using a SAM template:
 
-`sam package --output-template-file packaged.yaml --s3-bucket`
+`aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com`
 
-`sam deploy --template-file packaged.yaml --stack-name --capabilities
-CAPABILITY_IAM`
+`docker tag doctalkfunction:v1 <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.region.amazonaws.com/doctalkfunction:v1`
+
+`docker push <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.region.amazonaws.com/doctalkfunction:v1`
+
+Second, you need to create a lambda function of type container image from the uploaded docker image. You can do that from the AWS console by going to Lambda and then clicking Create new function as shown below
+
+![](media/image4.png)
+
 
 Configure Lambda and API Gateway: After deployment, you need to
 configure your Lambda function in the AWS Management Console
