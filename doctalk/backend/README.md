@@ -101,9 +101,9 @@ Container Registry (ECR). You can do this using the Docker CLI.
 
 `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com`
 
-`docker tag doctalkfunction:v1 <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.region.amazonaws.com/doctalkfunction:v1`
+`docker tag doctalkfunction:v1 <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/doctalkfunction:v1`
 
-`docker push <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.region.amazonaws.com/doctalkfunction:v1`
+`docker push <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/doctalkfunction:v1`
 
 Second, you need to create a lambda function of type container image from the uploaded docker image. You can do that from the AWS console by going to Lambda and then clicking Create new function as shown below
 
