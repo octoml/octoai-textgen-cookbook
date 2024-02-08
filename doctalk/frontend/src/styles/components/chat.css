@@ -44,6 +44,6 @@
     @apply text-2xs;
   }
   pre {
-    @apply bg-gray-800 text-white dark:bg-gray-600 overflow-x-auto rounded p-3 mb-4;
+    @apply bg-gray-800 text-white dark:bg-gray-600 overflow-x-auto rounded p-3 my-4;
   }
 }
