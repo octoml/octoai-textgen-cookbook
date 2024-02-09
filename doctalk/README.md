@@ -98,6 +98,9 @@ image. Run the following command from the `app/` directory:
 First, you need to upload your container image to Amazon Elastic
 Container Registry (ECR). You can do this using the Docker CLI.
 
+The commands below assume your region is us-east-1, and you can modify it accordingly.
+
+
 
 `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <YOUR_AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com`
 
@@ -134,10 +137,9 @@ is a good idea to increase the Memory to 2048 MB
 
 #### _Create API Gateway_
 
-Follow the steps described in this article below or use the python
+Use the python
 script at `api-gateway.py` to create an API gateway for the lambda
-function that allows clients to call it over HTTPS
-https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html#api-gateway-create-api-as-simple-proxy-for-lambda-build
+function that allows clients to call it over HTTPS.
 
 ## Contributing
 
