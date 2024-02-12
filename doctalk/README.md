@@ -1,26 +1,65 @@
-# README
+# How to build a complete document Q&A chatbot using RAG powered by Langchain, OctoAI and Pinecone
 
 ## Project Overview
 
-This project is a RAG Python application that leverages various libraries such as `pinecone`, `langchain`, and `beautifulsoup4` to create a Chat application with the documentation pages of two products; Pinecone and OctoAI. The application demonstrates how to do document processing, embedding generation, and conversational retrieval using the OctoAI LLM and Embeddings models and Pinecone as a Vector DB. It is designed to be run both as a command-line interface (CLI) application and as an AWS Lambda function.
+This "DocTalk" project presents a full stack RAG application that lets the user perform Q&A tasks on a documentation source of your choice. By default, we're performing documentation Q&A on the [Pinecone documentation pages](https://docs.pinecone.io/docs/quickstart).
+
+Let's take a look at the layers that compose this full stack RAG application:
+* We've built our RAG backend using Langchain in Python. The RAG example leverages Pinecone to provide a vector database, and OctoAI to provide an embedding (GTE-Large) and LLM (Mixtral-8x7B) API.
+* This RAG Python backend containerized and deployed on an AWS Lambda which lets us easily connect any frontend to its serverless API.
+* Finally we've built a Next.js front end which sents its request to the AWS Lambda to perform RAG on the documentation source. This Next.js frontend can be easily deployed on Vercel.
+
+The application demonstrates how to do document processing, embedding generation, and conversational retrieval using the OctoAI LLM and Embeddings models and Pinecone as a Vector DB. It is designed to be run both as a command-line interface (CLI) application, as an AWS Lambda function, or as a Next.js user facing applications.
+
+
+### This project is divided into 4 parts:
+
+1. **Vector database setup**: you'll learn how to load and process documents from specified URLs, convert text data into embedding vector that will then be stored in a vector database hosted on Pinecone.
+2. **Langchain Python app**: you'll run a standalone langchain app in Python that will let you perform simple RAG-based document question and answering against the vector database that we'll have set up in step 1.
+3. **AWS Lambda setup**: you'll containerize the Langchain Python app using Docker and deploy it as an AWS Lambda serverless function.
+4. **Frontend testing and deployment**: you'll run and deploy a Next.js frontend for your app on Vercel to allow anyone to perform documentation Q&A on a streamlined webapp.
+
 
 ## Features
 
--   Load and process documents from specified URLs.
--   Generate and use embeddings for text data.
--   Leverage the OctoAI LLM endpoints for language understanding and processing.
--   Compatible with AWS Lambda for serverless deployment.
+### Back-end
+- Load and process documents from specified URLs.
+- Generate embeddings for text data using OctoAI embedding API.
+- Populate your embedding vectors into a Pinecone vector database.
+- Leverage the OctoAI LLM endpoints for language understanding and processing (specifically OctoAI).
+- Compatible with AWS Lambda for serverless deployment.
+
+### Front-end
+- Utilize the AWS Lambda option from the Python backend.
+- Pre-built Next.js starter to get started, quick.
+- Tailwind, for easy plug and play with your own theme.
 
 ## Prerequisites
 
-Before running this application, you need to have Python installed on your system along with the application dependencies. You can install these packages using pip:
+### API Tokens
 
-`pip install -r requirements.txt`
+For this RAG example, we'll be using Pinecone for the vector database:
+-   To get a Pinecone API Key: please follow the steps [here](https://docs.pinecone.io/docs/quickstart)
 
-Additionally, you need to set up a `.env` file in the root of the project with the necessary environment variables.
+We'll also be using OctoAI for the embedding model and LLM APIs:
+-   To get an OctoAI API Token: please follow the steps [here](https://octo.ai/docs/getting-started/how-to-create-octoai-api-token)
 
--   To get an OctoAI API Token: please follow the steps here https://octo.ai/docs/getting-started/how-to-create-octoai-api-token
--   To get a Pinecone API Key: please follow the steps here https://docs.pinecone.io/docs/quickstart
+### Python Setup
+
+Before running this application, you need to have Python installed on your system along with the application dependencies. You can use tools like `conda`, `poetry`, or `virtual env` to manage your Python environments.
+
+If you're using virtual env, you can run the following from this top level directory:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Then you can install these packages using pip:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
 
 ### Playwright
 
@@ -30,9 +69,53 @@ The Langchain document loader we are using requires the playwright module. It ne
 python3 -m playwright install
 ```
 
-## Environment Variables
+### Next.js
 
-Make sure you have the `.env` file in the project's `app` directory, following this template:
+Before running this application, you need to make sure you are set up to run Next.js. Learn more in the [Next.js docs](https://nextjs.org/docs/getting-started/installation).
+
+## 1 - Vector DB Setup
+
+### Environment Setup
+
+Make sure you have the `.env` file in the project's `1_vector_db/` directory, following this template:
+
+```
+PINECONE_API_KEY=YOUR-PINECONE-TOKEN
+PINECONE_ENV=gcp-starter
+OCTOAI_TOKEN=YOUR-OCTOAI-TOKEN
+```
+
+It's highly likely you'll be getting started in Pinecone's `gcp-starter` pod environment if you're using the free tier of their service. See what other pod environments are available on [their documentation page](https://docs.pinecone.io/docs/indexes#pod-environments).
+
+Replace the placeholder values with your actual API keys and endpoints, which you can obtain by following the pre-requisite steps above.
+
+### Setting up the Vector DB
+
+To set up the Pinecone Vector DB, go ahead and run the following script in `1_vector_db`:
+
+`python3 init_vectordb.py`
+
+It will take several minutes to scrape the documents, perform pre-processing of the text information, convert to the vector space, and populate the pinecone index.
+
+You should see an output that looks as follows after executing the script. You can ignore the Beautiful Soup warning.
+
+```
+Initializing the Pinecone index...
+Loading the content we want to run RAG on, this could take a couple of minutes...
+/Users/moreau/Documents/Projects/octoai-textgen-cookbook/doctalk/1_vector_db/init_vectordb.py:46: MarkupResemblesLocatorWarning: The input looks more like a filename than markup. You may want to open this file and pass the filehandle into Beautiful Soup.
+  return {"page_content": str(BeautifulSoup(content, "html.parser").contents)}
+Preprocessing the data before storing in the vector DB
+Adding the vector embeddings into the database, this could take a couple of minutes...
+Done!
+```
+
+This code was tested on MacOS and Ubuntu.
+
+## 2 - RAG Langchain App
+
+### Environment Setup
+
+Make sure you have the `.env` file in the project's `2_langchain` directory, following this template:
 
 ```
 PINECONE_API_KEY=YOUR-TOKEN
@@ -54,13 +137,9 @@ To run the application via CLI, execute the main script:
 
 You will be prompted to enter the data source and your query. After providing the necessary inputs, the application will process the request and display the output.
 
-Note: The first time you run the application it will take several minutes to populate the pinecone index the first time. Subsequent runs should be very fast.
-
-![](media/image3.png)
-
 -   This code was tested on MacOS and Ubuntu
 
-## As an AWS Lambda Function
+## 3 - AWS Lambda Setup
 
 The application can also be deployed as an AWS Lambda function. To do so, package the application with the required dependencies and upload it to AWS Lambda. Set the handler function as `main.handler`.
 
@@ -140,6 +219,10 @@ is a good idea to increase the Memory to 2048 MB
 Use the python
 script at `api-gateway.py` to create an API gateway for the lambda
 function that allows clients to call it over HTTPS.
+
+## 4 - Frontend Setup
+
+WIP
 
 ## Contributing
 
