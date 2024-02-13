@@ -150,20 +150,6 @@ def init_pinecone_index(index_name="doctalk"):
     return index_name
 
 
-<<<<<<< HEAD
-=======
-def get_pinecone_vector_store(index_name):
-    text_field = "text"  # the metadata field that contains our text
-    embed_model = get_octo_embed_model()
-    index_name = init_pinecone_index(index_name=index_name)
-    index = pinecone.Index(index_name)
-    # Initialize the vector store object
-    vectorstore = Pinecone(index, embed_model, text_field)
-
-    return vectorstore
-
-
->>>>>>> 7bf6cff (refactor, WIP)
 if __name__ == "__main__":
 
     # Name our index on Pinecone
@@ -171,11 +157,7 @@ if __name__ == "__main__":
 
     # First initialize the vector store
     print("Initializing the Pinecone index...")
-<<<<<<< HEAD
     _ = init_pinecone_index(index_name=pinecone_index_name)
-=======
-    _ = get_pinecone_vector_store(pinecone_index_name)
->>>>>>> 7bf6cff (refactor, WIP)
 
     # Second, load all of the content we want to populate
     print("Loading the content we want to run RAG on, this could take a couple of minutes...")
