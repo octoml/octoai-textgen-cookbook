@@ -94,7 +94,7 @@ In this section, you'll learn how to load and process documents from specified U
 
 ### Environment Setup
 
-Make sure you have the `.env` file in the project's `1_vector_db/` directory, following this template:
+Make sure you have the `.env` file in the project's `vector_db/` directory, following this template:
 
 ```
 PINECONE_API_KEY=YOUR-PINECONE-TOKEN
@@ -108,7 +108,7 @@ Replace the placeholder values with your actual API keys and endpoints, which yo
 
 ### Setting up the Vector DB
 
-To set up the Pinecone Vector DB, go ahead and run the following script in `1_vector_db`:
+To set up the Pinecone Vector DB, go ahead and run the following script in `vector_db`:
 
 `python3 init_vectordb.py`
 
@@ -119,7 +119,7 @@ You should see an output that looks as follows after executing the script. You c
 ```
 Initializing the Pinecone index...
 Loading the content we want to run RAG on, this could take a couple of minutes...
-/Users/moreau/Documents/Projects/octoai-textgen-cookbook/doctalk/1_vector_db/init_vectordb.py:46: MarkupResemblesLocatorWarning: The input looks more like a filename than markup. You may want to open this file and pass the filehandle into Beautiful Soup.
+/Users/moreau/Documents/Projects/octoai-textgen-cookbook/doctalk/vector_db/init_vectordb.py:46: MarkupResemblesLocatorWarning: The input looks more like a filename than markup. You may want to open this file and pass the filehandle into Beautiful Soup.
   return {"page_content": str(BeautifulSoup(content, "html.parser").contents)}
 Preprocessing the data before storing in the vector DB
 Adding the vector embeddings into the database, this could take a couple of minutes...
@@ -134,7 +134,7 @@ In this section, you'll run a standalone langchain app in Python that will let y
 
 ### Environment Setup
 
-Make sure you have the `.env` file in the project's `2_langchain` directory, following this template:
+Make sure you have the `.env` file in the project's `langchain` directory, following this template:
 
 ```
 PINECONE_API_KEY=YOUR-TOKEN
@@ -238,14 +238,14 @@ your Lambda function. You can use the Dockerfile as is or extend it to suit your
 To deploy this Python application to AWS Lambda using a container image, you will need to follow these steps:
 
 
-_Copy the files over to build the Docker image:_ You'll need to copy the following files into the `3_lambda/` directory to build the Docker container image with AWS SAM. Run the commands below under the `3_lambda/` directory.
+_Copy the files over to build the Docker image:_ You'll need to copy the following files into the `aws_lambda/` directory to build the Docker container image with AWS SAM. Run the commands below under the `aws_lambda/` directory.
 
 ```bash
 cp ../requirements.txt .
-cp ../2_langchain_app/main.py .
+cp ../langchain_app/main.py .
 ```
 
-_Build the container image:_ Use AWS SAM CLI to build your container image. Run the following command from the `3_lambda/` directory:
+_Build the container image:_ Use AWS SAM CLI to build your container image. Run the following command from the `aws_lambda/` directory:
 
 ```bash
 sam build --use-container
@@ -320,7 +320,7 @@ From the Lambda Function management console, go to Configuration -> General Conf
 
 #### Set environment variables
 
-Set the environment variables under Configuration -> Environment Variables to reflect the variables you've set under the `2_langchain_app/.env` file.
+Set the environment variables under Configuration -> Environment Variables to reflect the variables you've set under the `langchain_app/.env` file.
 
 ![](media/image2.png)
 
@@ -353,7 +353,7 @@ In this section, you'll run and deploy a Next.js frontend for your app on Vercel
 
 ### Environment Setup
 
-Make sure you have the `.env` file under `4_frontend/`, following this template:
+Make sure you have the `.env` file under `frontend/`, following this template:
 
 ```
 API_ENDPOINT=YOUR-ENDPOINT
