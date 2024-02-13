@@ -4,7 +4,7 @@ import boto3
 apigateway = boto3.client("apigateway")
 lambda_client = boto3.client("lambda")
 
-LAMBDA_ARN = "MyLambdaARM" # FIXME: Update me once you've created the lambda!
+LAMBDA_ARN = "MyLambdaARN" # FIXME: Update me once you've created the lambda!
 API_NAME = "MyAPI"
 STAGE_NAME = "prod"
 RESOURCE_PATH = "doctalk"
