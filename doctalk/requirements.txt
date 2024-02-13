@@ -9,4 +9,5 @@ pinecone-client
 playwright==1.40.0
 python-dotenv==1.0.0
 tiktoken==0.5.2
-transformers==4.36.2
+transformers==4.37.2
+torch==2.2.0
