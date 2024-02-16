@@ -49,7 +49,7 @@ source environment.sh
 
 If you prefer, you can also directly paste your token in the file.
 
-You will notice that we have done some of the changes for you:
+We have completed some of these tasks for you:
 * We have already added the `OPENAI_API_BASE` URL for you.
 * We have already changed line 5 from the example to select the `Llama-2-13B` model.
 
