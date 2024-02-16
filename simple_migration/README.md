@@ -2,7 +2,7 @@
 
 OctoAI LLMs are available to use through our OpenAI compatible API. Additionally, if you have been building or prototyping using OpenAI's Python SDK you can keep your code as-is and use OctoAI's LLM models.
 
-In this example we will show you how to change just three lines of code to make your Python application use OctoAI's Open Source models through OpenAI's Python SDK.
+In this example, we will show you how to change just three lines of code to make your Python application use OctoAI's Open Source models through OpenAI's Python SDK.
 
 
 ## What you will build
