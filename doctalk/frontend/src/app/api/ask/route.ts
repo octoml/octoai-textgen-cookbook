@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         prompt: data.prompt,
-        data_source: "pinecone",
+        data_source: "pinecone_and_octoai",
       }),
     });
 

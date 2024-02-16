@@ -242,5 +242,6 @@ $RECYCLE.BIN/
 
 */build/*
 
-app/.aws-sam
-app/run.py
+aws_lambda/.aws-sam
+aws_lambda/requirements.txt
+aws_lambda/main.py

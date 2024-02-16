@@ -43,7 +43,7 @@
   h6 {
     @apply text-2xs;
   }
-  code {
-    @apply bg-gray-800 text-white p-[2px] dark:bg-gray-600 text-wrap break-words;
+  pre {
+    @apply bg-gray-800 text-white dark:bg-gray-600 overflow-x-auto rounded p-3 my-4;
   }
 }

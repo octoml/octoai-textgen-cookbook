@@ -16,8 +16,8 @@ RUN yum install -y gcc-c++ pkgconfig poppler-cpp-devel
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt -U
 
-# Copy the current directory contents into the container
-COPY . ${LAMBDA_TASK_ROOT}
+# Copy the main python file
+COPY main.py ${LAMBDA_TASK_ROOT}
 
 # Specify the command to run on container start
 CMD ["main.handler"]

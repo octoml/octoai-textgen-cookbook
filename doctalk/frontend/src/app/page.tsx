@@ -12,7 +12,9 @@ export default function Home() {
       <GeneratedImage />
       <div>
         <p className="credit">
-          DocTalk is a RAG chat app built using Python + NextJS that can search, summarize, and answer questions from a set of docs. This demo uses <a href="https://www.pinecone.io/" target="_blank">Pinecone&apos;s documentation.</a></p>
+          <b>Note:</b> If error occurs, please try again as the lambda might be warming up.</p>
+        <p className="credit">
+          DocTalk is a RAG chat app built using Python + NextJS that can search, summarize, and answer questions from a set of docs. This demo is utilizing documentation from <a href="https://octo.ai/?utm_source=doctalk" target="_blank">OctoAI</a> and <a href="https://www.pinecone.io/" target="_blank">Pinecone.</a></p>
         <p className="disclaimer">
           Please evaluate model response quality independently before using these
           for production use cases.
