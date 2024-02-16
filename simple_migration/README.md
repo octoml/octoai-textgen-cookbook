@@ -14,7 +14,7 @@ These are the three modifications necessary to achieve our goal:
 3. Change the model name to an Open Source model, for example: `llama-2-13b-chat-fp16`
 
 
-## What you will use
+## Requirements
 We will only use Python and the OpenAI's Python SDK.
 
 ## Instructions
