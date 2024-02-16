@@ -51,7 +51,7 @@ If you prefer, you can also directly paste your token in the file.
 
 You will notice that we have done some of the changes for you:
 * We have already added the `OPENAI_API_BASE` URL for you.
-* We have already changed line 5 from the example to select Llama-2-13B as the model to use.
+* We have already changed line 5 from the example to select the `Llama-2-13B` model.
 
 ### Running the application
 
