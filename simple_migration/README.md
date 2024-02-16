@@ -19,7 +19,7 @@ We will be using Python and OpenAI's Python SDK.
 
 ## Instructions
 
-- Set up python virtual environment
+- Set up a Python virtual environment. Read _Creating Virtual Environments_ [here](https://docs.python.org/3/library/venv.html).
 
 ```bash
 python3 -m venv .venv
@@ -61,6 +61,10 @@ python3 response.py
 ```
 
 ### Example output
+```bash
+python response.py 
+ChatCompletionMessage(content="  Hello! How can I assist you today? Do you have any questions or tasks you'd like help with? Please let me know and I'll do my best to assist you.", role='assistant', function_call=None, tool_calls=None)
+```
 
 
 ## License
