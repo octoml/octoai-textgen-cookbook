@@ -15,7 +15,7 @@ These are the three modifications necessary to achieve our goal:
 
 
 ## Requirements
-We will only use Python and the OpenAI's Python SDK.
+We will be using Python and OpenAI's Python SDK.
 
 ## Instructions
 
