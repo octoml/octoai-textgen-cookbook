@@ -55,7 +55,7 @@ We have completed some of these tasks for you:
 
 ### Running the application
 
-Run `response.py` script to chat with the LLM hosted endpoint.
+Run the `response.py` script to chat with the hosted LLM endpoint.
 ```bash
 python3 response.py
 ```
