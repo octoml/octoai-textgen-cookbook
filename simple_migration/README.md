@@ -1,6 +1,6 @@
 # Change 3 lines of code to migrate to OctoAI
 
-OctoAI LLMs are available to use through an OpenAI compatible API. Even more, if you have been building or prototyping using OpenAI's Python SDK you can keep your code as it is and still use OctoAI's LLM models.
+OctoAI LLMs are available to use through our OpenAI compatible API. Additionally, if you have been building or prototyping using OpenAI's Python SDK you can keep your code as-is and use OctoAI's LLM models.
 
 In this example we will show you how to change just three lines of code to make your Python application use OctoAI's Open Source models through OpenAI's Python SDK.
 
