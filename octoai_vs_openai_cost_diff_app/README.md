@@ -8,7 +8,7 @@ Before running anything, please first install the necessary dependencies with `p
 
 To run the benchmark, execute
 ```bash
-python contract_summarizer_harness.py --use_model [gpt4, gpt3.5, mixtral, mistral, llama2] --docs_path <relative or absolute path to your directory with pdfs>
+python contract_summarizer_harness.py --use_model [gpt4, gpt3.5, gpt3.5-new, mixtral, mistral, llama2, nous-hermes] --docs_path <relative or absolute path to your directory with pdfs>
 ```
 
 ## Interactive application
