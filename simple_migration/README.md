@@ -42,7 +42,7 @@ To run this example app, there are two simple steps to take:
 ```bash
 export OCTOAI_TOKEN=<your-token>
 ```
-- Now source the provided `environment.sh` file:
+- Source the provided `environment.sh` file:
 ```bash
 source environment.sh
 ```
