@@ -54,11 +54,7 @@ const UserChat = () => {
   };
 
   return (
-    <div
-      className={
-        `interactive ${questionSubmitted ? "condensed" : ""}`
-      }
-    >
+    <div className={`interactive ${questionSubmitted ? "condensed" : ""}`}>
       <Prompt
         formLabel="Go for it, ask a question"
         btnText="See response"
@@ -67,25 +63,25 @@ const UserChat = () => {
         inputValue={inputValue}
         setInputValue={setInputValue}
         handleSubmit={handleSubmit}
+        loading={loading}
       />
       <div className="result chat">
         {loading && <LoadingDots />}
-        {messages.length > 0 && (
+        {messages.length > 0 &&
           // display most recent messages first
-          messages.slice().reverse().map((message, index) => (
-            <Fragment key={message.question + index}>
-              <ChatBubble
-                key={message.question}
-                text={message.question}
-              />
-              <ChatBubble
-                key={message.answer}
-                text={message.answer}
-                color="secondary"
-              />
-            </Fragment>
-          ))
-        )}
+          messages
+            .slice()
+            .reverse()
+            .map((message, index) => (
+              <Fragment key={message.question + index}>
+                <ChatBubble key={message.question} text={message.question} />
+                <ChatBubble
+                  key={message.answer}
+                  text={message.answer}
+                  color="secondary"
+                />
+              </Fragment>
+            ))}
       </div>
       {error && (
         <ErrorBanner bannerText="There was an error generating the answer, please try again." />
