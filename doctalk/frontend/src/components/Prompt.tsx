@@ -15,6 +15,8 @@ interface PromptProps {
   setInputValue: Dispatch<SetStateAction<string>>;
   /** Function that runs on form submit */
   handleSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void> | void;
+  /** State of user chat response */
+  loading: boolean;
 }
 
 const Prompt: FC<PromptProps> = ({
@@ -25,6 +27,7 @@ const Prompt: FC<PromptProps> = ({
   inputValue,
   setInputValue,
   handleSubmit,
+  loading,
 }) => {
   return (
     <form id="prompt" className={size} onSubmit={handleSubmit}>
@@ -38,7 +41,9 @@ const Prompt: FC<PromptProps> = ({
           onChange={(e) => setInputValue(e.target.value)}
         />
       </label>
-      <button id="generate-btn">{btnText}</button>
+      <button id="generate-btn" disabled={loading}>
+        {btnText}
+      </button>
     </form>
   );
 };
