@@ -9,9 +9,9 @@ In this example, we will show you how to change just three lines of code to make
 Migrate OpenAI's Python SDK example script to use OctoAI's LLM endpoints.
 
 These are the three modifications necessary to achieve our goal:
-1. Redefine `OPENAI_API_KEY` your API key environment variable to use your OctoAI key.
-2. Redefine `OPENAI_BASE_URL` to point to `https://text.octoai.run/v1`
-3. Change the model name to an Open Source model, for example: `llama-2-13b-chat-fp16`
+1. When instantiating the OpenAI client instance, set the `base_url` to point to `https://text.octoai.run/v1` your API key environment variable to use your OctoAI key.
+2. When instantiating the OpenAI client instance, set the `api_key` to your API key environment variable to use your OctoAI key.
+3. When instantiating the OpenAI chat completion instance, change the model name to an Open Source model, for example: `llama-2-13b-chat-fp16`.
 
 
 ## Requirements
@@ -42,16 +42,10 @@ To run this example app, there are two simple steps to take:
 ```bash
 export OCTOAI_TOKEN=<your-token>
 ```
-- Source the provided `environment.sh` file:
-```bash
-source environment.sh
-```
-
-If you prefer, you can also directly paste your token in the file.
 
 We have completed some of these tasks for you:
 * We have already added the `OPENAI_API_BASE` URL for you.
-* We have already changed line 5 from the example to select the `Llama-2-13B` model.
+* We have already changed line 10 from the example to select the `Llama-2-13B` model.
 
 ### Running the application
 
@@ -62,7 +56,6 @@ python3 response.py
 
 ### Example output
 ```bash
-python response.py 
 ChatCompletionMessage(content="  Hello! How can I assist you today? Do you have any questions or tasks you'd like help with? Please let me know and I'll do my best to assist you.", role='assistant', function_call=None, tool_calls=None)
 ```
 
