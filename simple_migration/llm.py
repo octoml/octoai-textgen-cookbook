@@ -1,6 +1,10 @@
 from openai import OpenAI
+import os
 
-client = OpenAI()
+client = OpenAI(
+   base_url = "https://text.octoai.run/v1",
+   api_key = os.environ['OCTOAI_TOKEN']
+)
 
 completion = client.chat.completions.create(
     # model="gpt-3.5-turbo",
