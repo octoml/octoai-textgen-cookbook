@@ -25,24 +25,29 @@
   a {
     @apply underline;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-4 mb-2;
+  }
   h1 {
-    @apply text-xl;
+    @apply text-xs underline;
   }
   h2 {
-    @apply text-lg;
-  }
-  h3 {
-    @apply text-md;
-  }
-  h4 {
-    @apply text-sm;
-  }
-  h5 {
-    @apply text-xs;
-  }
-  h6 {
     @apply text-2xs;
   }
+  h3 {
+    @apply text-[18px] font-semibold underline;
+  }
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold underline;
+  }
+
   pre {
     @apply bg-gray-800 text-white dark:bg-gray-600 overflow-x-auto rounded p-3 my-4;
   }
