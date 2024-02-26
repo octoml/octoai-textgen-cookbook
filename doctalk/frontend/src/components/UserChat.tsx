@@ -12,7 +12,7 @@ interface MessageProps {
 }
 
 const UserChat = () => {
-  const initialPrompt = "What is a vector database?";
+  const initialPrompt = "Give me an example of what a web scraper looks like in Python";
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<MessageProps[]>([]);
   const [error, setError] = useState(false);
