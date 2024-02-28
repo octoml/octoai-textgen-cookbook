@@ -312,7 +312,7 @@ if __name__ == "__main__":
 
 
         with gr.Blocks() as demo:
-            gr.Markdown("# Docs summarization app")
+            gr.Markdown("# Text summarization with OctoAI")
             gr.Markdown("Comparing the cost-efficiency of various long-text summarization methods with OctoAI.")
             document_content = gr.File()
 
