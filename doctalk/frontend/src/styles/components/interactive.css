@@ -12,7 +12,7 @@
       @apply text-2xs transition-font-size  sm:text-xs;
     }
     button {
-      @apply mr-auto flex-shrink-0 sm:rounded-l-none sm:border-l-0;
+      @apply mr-auto flex-shrink-0 sm:rounded-l-none sm:border-l-0 disabled:bg-none disabled:bg-gray-300 disabled:hover:cursor-not-allowed;
     }
     input {
       @apply sm:rounded-r-none sm:border-r-0;
