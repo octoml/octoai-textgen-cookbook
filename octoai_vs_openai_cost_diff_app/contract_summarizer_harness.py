@@ -17,10 +17,11 @@ load_dotenv()
 
 SYSTEM_PROMPT = "You are a helpful financial and accounting specialist assistant. You will summarize any given document into 10 bullet points. Please note that your work will be reviewed, if done right, you will get a 100 USD performance bonus per summary."
 
-
+# NOTE: The prices are up to date as of end of February 2024
 COSTS = {"gpt3.5-new": {"input": 0.0005, "output": 0.0015},
          "gpt3.5": {"input": 0.001, "output": 0.002},
          "mixtral": {"input": 0.0003, "output": 0.0005},
+         "nous-hermes": {"input": 0.0003, "output": 0.0005},
          "gpt4": {"input": 0.01, "output": 0.03},
          "mistral": {"input": 0.0001, "output": 0.00025},
          "llama2": {"input": 0.0006, "output": 0.0019}}
@@ -139,6 +140,10 @@ class OctoAIModel(AbstactModel):
             self.model_name = "llama-2-70b-chat-fp16"
             self.tokenizer = AutoTokenizer.from_pretrained("NousResearch/Llama-2-70b-chat-hf")
             self.ctx_window_size = 4096
+        elif self.slug_model_name.startswith("nous-hermes"):
+            self.model_name = "nous-hermes-2-mixtral-8x7b-dpo-fp16"
+            self.tokenizer = AutoTokenizer.from_pretrained("mistralai/Mixtral-8x7B-Instruct-v0.1")
+            self.ctx_window_size = 32768
 
     def chunk_text_iter(self, text):
         max_size = self.ctx_window_size - self.get_num_tokens(SYSTEM_PROMPT) - self.params["max_tokens"] - 100
@@ -175,8 +180,21 @@ def benchmark_one(document, doc_name, model):
                     "ctx_window_size": model.ctx_window_size}, response
 
 def total_cost(stats_dict):
-    return (stats_dict['num_input_tokens'] * COSTS[stats_dict['model_name']]['input'] / 1000
-           + stats_dict['num_output_tokens'] * COSTS[stats_dict['model_name']]['output'] / 1000)
+    model_name_mapper = {
+                "mixtral": "mixtral",
+                "mistral": "mistral",
+                "llama2": "llama2",
+                "nous-hermes": "nous-hermes",
+                "llama2-70b": "llama2",
+                "mixtral-8x7b": "mixtral",
+                "mistral-7b-v0.2": "mistral",
+                "nous-hermes-2-mixtral": "nous-hermes",
+                "gpt3.5": "gpt3.5",
+                "gpt3.5-new": "gpt3.5-new",
+                "gpt4": "gpt4"
+            }
+    return (stats_dict['num_input_tokens'] * COSTS[ model_name_mapper[stats_dict['model_name']] ]['input'] / 1000
+           + stats_dict['num_output_tokens'] * COSTS[ model_name_mapper[stats_dict['model_name']] ]['output'] / 1000)
 
 
 def as_html_spec(stats_dict):
@@ -203,7 +221,7 @@ def as_html_diff_summary(lhs_stats_dict, rhs_stats_dict):
 if __name__ == "__main__":  
     import argparse
 
-    model_choices = ["gpt4", "gpt3.5", "gpt3.5-new", "llama2", "mixtral", "mistral"]
+    model_choices = ["gpt4", "gpt3.5", "gpt3.5-new", "llama2", "mixtral", "mistral", "nous-hermes"]
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--use_model", choices=model_choices)
@@ -242,7 +260,7 @@ if __name__ == "__main__":
             gr.Markdown("Comparing the cost-efficiency of OpenAI and OctoAI.")
             document_content = gr.File()
 
-            octoai_model_pick = gr.Dropdown(value="mixtral", label="OctoAI Model", show_label=True, choices=["llama2-70b", "mixtral", "mistral-7b"])
+            octoai_model_pick = gr.Dropdown(value="mixtral-8x7b", label="OctoAI Model", show_label=True, choices=["llama2-70b", "mixtral-8x7b", "mistral-7b-v0.2", "nous-hermes-2-mixtral"])
             openai_model_pick = gr.Dropdown(value="gpt3.5", label="OpenAI Model", show_label=True, choices=["gpt4", "gpt3.5-new", "gpt3.5"])
 
             summarize_btn = gr.Button(value="Summarize")
