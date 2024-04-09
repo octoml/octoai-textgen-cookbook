@@ -1,0 +1,15 @@
+octoai-sdk==0.8.3
+python-dotenv==1.0.1
+tiktoken==0.5.2
+langchain==0.1.5
+transformers==4.37.2
+unstructured==0.12.3
+pdf2image==1.17.0
+gradio==4.14.0
+opencv-python==4.9.0.80
+pdfminer.six==20221105
+pdfplumber==0.10.3
+unstructured_inference==0.7.23
+torch==2.2.0
+pikepdf==8.12.0
+pypdf==4.0.1
