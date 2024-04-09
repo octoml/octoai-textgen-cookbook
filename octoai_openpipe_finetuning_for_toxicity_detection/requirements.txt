@@ -1,0 +1,8 @@
+openpipe==4.4.2
+octoai-sdk==0.8.3
+python-dotenv==1.0.1
+tiktoken>=0.5.0,<0.6.0
+transformers==4.37.2
+gradio==4.14.0
+datasets
+tenacity
