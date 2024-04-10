@@ -1,40 +1,42 @@
-# Toxicity classifier datasets
-1. https://huggingface.co/datasets/lmsys/toxic-chat
-2. https://huggingface.co/datasets/google/jigsaw_toxicity_pred
-3. https://huggingface.co/datasets/OxAISH-AL-LLM/wiki_toxic (may be redundant with 2)
-4. https://huggingface.co/datasets/unalignment/toxic-dpo-v0.2
+# Toxicity classification at 125x lower costs and better-than-GPT 4 quality, with fine-tuneed Mistral 7B
+
+This repository contains the necessary code to collect a dataset from GPT-4 responses and then to evaluate a fine-tuned model against various OctoAI and OpenAI models. If you want to check out the cost efficiency gains from fine-tuning, check out [this blog post](...).
+
+Feel free to grab this code and an `OCTOAI_API_TOKEN`, and
+build your LLM-powered applications today!
 
 
-# TODO:
-- [v] Fine-tune Mistral to serve as toxicity classifier
-  * [v] Use 50 samples
-  * [v] Use 100 samples
-- [wip] Include a subsample of hard examples
-- [wip] Include a subsample of jailbreaking examples
-- [v] Evaluate (precision/recall/accuracy/f1) against base mistral -> Hosted on OctoAI
-- [v] Evaluate (precision/recall/accuracy/f1) against base mixtral -> Hosted on OctoAI
-- [v] Evaluate (precision/recall/accuracy/f1) against gpt3.5
-- [v] Evaluate (precision/recall/accuracy/f1) against gpt4
-- [x] Evaluate (precision/recall/accuracy/f1) against llamaguard - https://octoai.cloud/text/chat?model=llamaguard-7b&mode=api
+## Setup
+
+Before running anything, please first install the necessary dependencies with `pip install -r requirements.txt` and make sure to specify your `OCTOAI_TOKEN`, `OPENAI_API_KEY`, and `OPENPIPE_API_KEY` in the `.env` file.
+
+## Dataset
+
+The dataset used in this repository is a LMSys ToxicChat, but for fine-tuning we use the GPT-4 annotations instead of the provided human labels. Also, it includes not only human annotated toxic/non-toxic user queries, but also various jailbreaking attempts. This is especially interesting because it allows to test the performance of the toxicity detection models when faced with jailbreaking prompts.
 
 
-# On a side-note, some feedback for OpenPipe folks
-- Absolutely zero information about why my training run failed!! How am I supposed to fix it if I have no clue what went wrong
-- Not having the ability to save filtering rules is very annoying
-- Can't stop the training of a model once started, don't know if deletion will help
-- Would be helpful to be able to edit tags from UI
-- Limited view for training, don't like it - I'd like to be reasured that you do it right, otherwise I'd prefer to train myself
-- Filtering on the size of input/output tokens would be helpful
+## Running data collection
+
+To collect a dataset of GPT-4 responses, execute the following command in your terminal:
+```bash
+python collect_classify_toxic_text.py -m [gpt4, gpt3.5, openpipe:some-previously-tuned-model] --ds-offset 0 --ds-max-size 100
+```
+
+Once you have collected the dataset, please follow the instructions on how to tune the model on OpenPipe, available in [this blog post](https://octo.ai/blog/what-you-need-to-know-about-fine-tuning-llm-models/).
+
+## Running evaluation
+
+To evaluate your model, execute the following command in your terminal:
+```bash
+python evaluate_classify_toxic_text.py -m [gpt4, gpt3.5, openpipe:some-previously-tuned-model, mistral-7b, mixtral-8x7b, llamaguard] --eval-file eval_outputs.jsonl
+```
+
+Note that you can also evaluate against "base"/"not tuned" models from OctoAI and OpenAI too.
+
+`LlamaGuard` is not available yet for this benchmark, but soon will become available.
 
 
-https://app.openpipe.ai/p/ofZ0kyrpYH/request-logs
-https://platform.openai.com/usage
-
-
-
-
-
-
+## Appendix A: `classification_report` results for various models
 
 
 ```
@@ -49,6 +51,8 @@ GPT4 scores
 weighted avg       0.84      0.77      0.75        30
 ```
 
+---
+
 ```
 Contender model (gpt-3.5-turbo) scores
               precision    recall  f1-score   support
@@ -60,6 +64,8 @@ Contender model (gpt-3.5-turbo) scores
    macro avg       0.76      0.76      0.75        28
 weighted avg       0.77      0.75      0.75        28
 ```
+
+---
 
 ```
 Contender model (openpipe:toxicity-100-gpt4-prune) scores
@@ -73,6 +79,8 @@ Contender model (openpipe:toxicity-100-gpt4-prune) scores
 weighted avg       0.75      0.73      0.73        30
 ```
 
+---
+
 ```
 Contender model (openpipe:toxicity-100-gpt4-noprune) scores
               precision    recall  f1-score   support
@@ -85,7 +93,9 @@ Contender model (openpipe:toxicity-100-gpt4-noprune) scores
 weighted avg       0.82      0.80      0.79        30
 ```
 
-Mistral and Mixtral both follow the instructions very poorly and are prone to jailbreaking
+---
+
+**Note**: Mistral and Mixtral both follow the instructions very poorly and are prone to jailbreaking
 ```
 Contender model (mistral-7b-instruct) scores
               precision    recall  f1-score   support
@@ -98,6 +108,8 @@ Contender model (mistral-7b-instruct) scores
 weighted avg       0.33      0.57      0.42        21
 ```
 
+---
+
 ```
 Contender model (mixtral-8x7b-instruct) scores
               precision    recall  f1-score   support
@@ -109,3 +121,5 @@ Contender model (mixtral-8x7b-instruct) scores
    macro avg       0.25      0.50      0.33        20
 weighted avg       0.25      0.50      0.33        20
 ```
+
+
