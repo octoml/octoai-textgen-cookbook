@@ -1,0 +1,4 @@
+llama-index-embeddings-octoai==0.1.0
+llama-index-llms-octoai==0.1.0
+llama-index==0.10.30
+octoai-sdk==0.10.1
