@@ -1,5 +1,5 @@
-from llama_index.embeddings.octoai import OctoAIEmbedding
 from os import environ
+from llama_index.embeddings.octoai import OctoAIEmbedding
 
 OCTOAI_API_KEY = environ.get("OCTOAI_TOKEN")
 embed_model = OctoAIEmbedding(api_key=OCTOAI_API_KEY)
