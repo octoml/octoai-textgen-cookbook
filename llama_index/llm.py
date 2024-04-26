@@ -1,5 +1,5 @@
-from llama_index.llms.octoai import OctoAI
 from os import environ
+from llama_index.llms.octoai import OctoAI
 
 OCTOAI_API_KEY = environ.get("OCTOAI_TOKEN")
 
