@@ -3,7 +3,7 @@ from os import environ
 
 OCTOAI_API_KEY = environ.get("OCTOAI_TOKEN")
 
-octoai = OctoAI(model="llama-2-13b-chat", token=OCTOAI_API_KEY)
+octoai = OctoAI(model="meta-llama-3-8b-instruct", token=OCTOAI_API_KEY)
 
 # Using complete
 response = octoai.complete("Octopi can not play chess because...")
