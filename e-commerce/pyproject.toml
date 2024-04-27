@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ecommerce-example"
+version = "0.1.0"
+description = ""
+authors = ["Pedro Torruella <5025399+ptorru@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^1.23.6"
+datasets = "^2.19.0"
+load-dotenv = "^0.1.0"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
