@@ -1,133 +1,602 @@
 [
-{"url": "https://docs.pinecone.io/docs#content"},
-{"url": "https://docs.pinecone.io/docs/release-notes"},
-{"url": "https://docs.pinecone.io/docs/release-notes#content"},
-{"url": "https://docs.pinecone.io/docs/overview"},
-{"url": "https://docs.pinecone.io/docs/overview#content"},
-{"url": "https://docs.pinecone.io/docs/quickstart"},
-{"url": "https://docs.pinecone.io/docs/quickstart#content"},
-{"url": "https://docs.pinecone.io/docs/authentication"},
-{"url": "https://docs.pinecone.io/docs/authentication#content"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#content"},
-{"url": "https://docs.pinecone.io/docs/organizations"},
-{"url": "https://docs.pinecone.io/docs/organizations#content"},
-{"url": "https://docs.pinecone.io/docs/manage-billing"},
-{"url": "https://docs.pinecone.io/docs/manage-billing#content"},
-{"url": "https://docs.pinecone.io/docs/setting-up-aws-marketplace-billing"},
-{"url": "https://docs.pinecone.io/docs/setting-up-aws-marketplace-billing#content"},
-{"url": "https://docs.pinecone.io/docs/setting-up-azure-marketplace-billing"},
-{"url": "https://docs.pinecone.io/docs/setting-up-azure-marketplace-billing#content"},
-{"url": "https://docs.pinecone.io/docs/setting-up-gcp-marketplace-billing"},
-{"url": "https://docs.pinecone.io/docs/setting-up-gcp-marketplace-billing#content"},
-{"url": "https://docs.pinecone.io/docs/changing-your-billing-plan"},
-{"url": "https://docs.pinecone.io/docs/changing-your-billing-plan#content"},
-{"url": "https://docs.pinecone.io/docs/subscription_status"},
-{"url": "https://docs.pinecone.io/docs/subscription_status#content"},
-{"url": "https://docs.pinecone.io/docs/manage-cost"},
-{"url": "https://docs.pinecone.io/docs/manage-cost#content"},
-{"url": "https://docs.pinecone.io/docs/understanding-cost"},
-{"url": "https://docs.pinecone.io/docs/understanding-cost#content"},
-{"url": "https://docs.pinecone.io/docs/monitoring-usage"},
-{"url": "https://docs.pinecone.io/docs/monitoring-usage#content"},
-{"url": "https://docs.pinecone.io/docs/managing-cost"},
-{"url": "https://docs.pinecone.io/docs/managing-cost#content"},
-{"url": "https://docs.pinecone.io/docs/projects"},
-{"url": "https://docs.pinecone.io/docs/projects#content"},
-{"url": "https://docs.pinecone.io/docs/manage-projects"},
-{"url": "https://docs.pinecone.io/docs/manage-projects#content"},
-{"url": "https://docs.pinecone.io/docs/create-project"},
-{"url": "https://docs.pinecone.io/docs/create-project#content"},
-{"url": "https://docs.pinecone.io/docs/add-users-to-projects-and-organizations"},
-{"url": "https://docs.pinecone.io/docs/add-users-to-projects-and-organizations#content"},
-{"url": "https://docs.pinecone.io/docs/rename-project"},
-{"url": "https://docs.pinecone.io/docs/rename-project#content"},
-{"url": "https://docs.pinecone.io/docs/change-project-pod-limit"},
-{"url": "https://docs.pinecone.io/docs/change-project-pod-limit#content"},
-{"url": "https://docs.pinecone.io/docs/starter-environment"},
-{"url": "https://docs.pinecone.io/docs/starter-environment#content"},
-{"url": "https://docs.pinecone.io/docs/indexes"},
-{"url": "https://docs.pinecone.io/docs/indexes#content"},
-{"url": "https://docs.pinecone.io/docs/manage-indexes"},
-{"url": "https://docs.pinecone.io/docs/manage-indexes#content"},
-{"url": "https://docs.pinecone.io/docs/back-up-indexes"},
-{"url": "https://docs.pinecone.io/docs/back-up-indexes#content"},
-{"url": "https://docs.pinecone.io/docs/namespaces"},
-{"url": "https://docs.pinecone.io/docs/namespaces#content"},
-{"url": "https://docs.pinecone.io/docs/scaling-indexes"},
-{"url": "https://docs.pinecone.io/docs/scaling-indexes#content"},
-{"url": "https://docs.pinecone.io/docs/collections"},
-{"url": "https://docs.pinecone.io/docs/collections#content"},
-{"url": "https://docs.pinecone.io/docs/insert-data"},
-{"url": "https://docs.pinecone.io/docs/insert-data#content"},
-{"url": "https://docs.pinecone.io/docs/manage-data"},
-{"url": "https://docs.pinecone.io/docs/manage-data#content"},
-{"url": "https://docs.pinecone.io/docs/query-data"},
-{"url": "https://docs.pinecone.io/docs/query-data#content"},
-{"url": "https://docs.pinecone.io/docs/metadata-filtering"},
-{"url": "https://docs.pinecone.io/docs/metadata-filtering#content"},
-{"url": "https://docs.pinecone.io/docs/datasets"},
-{"url": "https://docs.pinecone.io/docs/datasets#content"},
-{"url": "https://docs.pinecone.io/docs/pinecone-public-datasets"},
-{"url": "https://docs.pinecone.io/docs/pinecone-public-datasets#content"},
-{"url": "https://docs.pinecone.io/docs/using-public-datasets"},
-{"url": "https://docs.pinecone.io/docs/using-public-datasets#content"},
-{"url": "https://docs.pinecone.io/docs/creating-datasets"},
-{"url": "https://docs.pinecone.io/docs/creating-datasets#content"},
-{"url": "https://docs.pinecone.io/docs/hybrid-search-and-sparse-vectors"},
-{"url": "https://docs.pinecone.io/docs/hybrid-search-and-sparse-vectors#content"},
-{"url": "https://docs.pinecone.io/docs/hybrid-search"},
-{"url": "https://docs.pinecone.io/docs/hybrid-search#content"},
-{"url": "https://docs.pinecone.io/docs/sparse-dense-vectors"},
-{"url": "https://docs.pinecone.io/docs/sparse-dense-vectors#content"},
-{"url": "https://docs.pinecone.io/docs/encode-sparse-vectors"},
-{"url": "https://docs.pinecone.io/docs/encode-sparse-vectors#content"},
-{"url": "https://docs.pinecone.io/docs/moving-to-production"},
-{"url": "https://docs.pinecone.io/docs/moving-to-production#content"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning#content"},
-{"url": "https://docs.pinecone.io/docs/troubleshooting"},
-{"url": "https://docs.pinecone.io/docs/troubleshooting#content"},
-{"url": "https://docs.pinecone.io/docs/monitoring"},
-{"url": "https://docs.pinecone.io/docs/monitoring#content"},
-{"url": "https://docs.pinecone.io/docs/multitenancy"},
-{"url": "https://docs.pinecone.io/docs/multitenancy#content"},
-{"url": "https://docs.pinecone.io/docs/amazon-bedrock"},
-{"url": "https://docs.pinecone.io/docs/amazon-bedrock#content"},
-{"url": "https://docs.pinecone.io/docs/sagemaker"},
-{"url": "https://docs.pinecone.io/docs/sagemaker#content"},
-{"url": "https://docs.pinecone.io/docs/cohere"},
-{"url": "https://docs.pinecone.io/docs/collections/#limitations"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#overview"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#number-of-vectors"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#dimensionality-of-vectors"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#queries-per-second-qps"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning/#how-to-increase-throughput"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning/#content"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning/#basic-performance-checklist"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning/limits"},
-{"url": "https://docs.pinecone.io/docs/performance-tuning/"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#metadata-cardinality-and-size"},
-{"url": "https://docs.pinecone.io/docs/insert-data/#inserting-vectors-with-metadata"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#pod-sizes"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#example-applications"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#example-1-semantic-search-of-news-articles"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search#content"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search#semantic-search"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search#data-preprocessing"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search#building-embeddings-and-upsert-format"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search#creating-an-index"},
-{"url": "https://docs.pinecone.io/docs/semantic-text-search#making-queries"},
-{"url": "https://docs.pinecone.io/docs/choosing-index-type-and-size#example-2-facial-recognition"},
-{"url": "https://docs.pinecone.io/docs/overview#pinecone-overview"},
-{"url": "https://docs.pinecone.io/docs/overview#vector-embeddings-provide-long-term-memory-for-ai"},
-{"url": "https://docs.pinecone.io/docs/overview#vector-databases-store-and-query-embeddings-quickly-and-at-scale"},
-{"url": "https://docs.pinecone.io/docs/overview#pinecone-indexes-store-records-with-vector-data"},
-{"url": "https://docs.pinecone.io/docs/overview#pinecone-queries-are-fast-and-fresh"},
-{"url": "https://docs.pinecone.io/docs/overview#upsert-and-query-vector-embeddings-with-the-pinecone-api"},
-{"url": "https://docs.pinecone.io/docs/overview#query-your-index-for-the-most-similar-vectors"},
-{"url": "https://docs.pinecone.io/docs/overview#get-started"},
-{"url": "https://docs.pinecone.io/reference"},
-{"url": "https://docs.pinecone.io/page/examples"}
+    {
+        "url": "https://docs.pinecone.io/integrations/haystack"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/rename-a-project"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/amazon-sagemaker"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/serverless-index-connection-errors"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/cors-issues"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/use-public-pinecone-datasets"
+    },
+    {
+        "url": "https://docs.pinecone.io/examples/sample-apps/namespace-notes"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/snowflake"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/delete_post"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/metadata-reconfiguration"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/pods-are-full"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/delete-a-namespace"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/limitations-of-querying-by-id"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/create_collection"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/hugging-face-inference-endpoints"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/datadog"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/minimize-latencies"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/wait-for-index-creation"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/openai"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/delete-an-index"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/data-plane/describeindexstats"
+    },
+    {
+        "url": "https://docs.pinecone.io/home"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/create-a-project"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/operations/move-to-production"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/manage-project-members"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/delete_collection"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/configure_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/query-sparse-dense-vectors"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/create_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/describe_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/fetch"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/pulumi"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/vercel"
+    },
+    {
+        "url": "https://docs.pinecone.io/examples"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-cost/understanding-cost"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/get-an-index-endpoint"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/build-integration/become-a-partner"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/filter-with-metadata"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/trulens"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/delete_collection"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/new-relic"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/namespaces-vs-metadata-filtering"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/use-namespaces-instead-of-several-indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-organization-members"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/use-namespaces"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/overview"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/list"
+    },
+    {
+        "url": "https://docs.pinecone.io/tools/reference-architectures"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-billing/setting-up-billing-through-gcp-marketplace"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/configure-single-sign-on/okta"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/index-creation-error-max-serverless"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/configure_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/index-creation-error-missing-spec"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/list-record-ids"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/fetch-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/describe_collection"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/query-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/operations/migrate-to-the-new-api"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/unable-to-pip-install"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/data-plane/fetch"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-cost/monitor-your-usage"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/migrate-a-legacy-starter-index-to-serverless"
+    },
+    {
+        "url": "https://docs.pinecone.io/release-notes/api-lifecycle-policy"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/llamaindex"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/create-and-manage-vectors-with-metadata"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/voyage"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-cost/manage-cost"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/custom-data-processing-agreements"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/cohere"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/billing-disputes-and-refunds"
+    },
+    {
+        "url": "https://docs.pinecone.io/examples/sample-apps"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/upsert-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/delete_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/upsert"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/pinecone-support-slas"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/update-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/contact-support"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/create-an-index"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/amazon-bedrock"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/remove-metadata-field"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/guides/organizations/understanding-organizations"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/update-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/examples/notebooks"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/terraform"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-billing/changing-your-billing-plan"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/upsert-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/list_indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/tools/pinecone-utilities"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/module-pinecone-has-no-attribute-init"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/data-plane/upsert"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/upsert-sparse-dense-vectors"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/describeindexstats"
+    },
+    {
+        "url": "https://docs.pinecone.io/release-notes/2024"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/architecture/pod-based-architecture"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/understanding-organizations"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/manage-rag-documents"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/elasticsearch"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/convert-a-gcp-starter-index-to-serverless"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/anyscale"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/how-to-work-with-support"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/list_indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/vertically-downscaling"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/update"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/delete-your-account"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/parallel-queries"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/embedding-values-changed-when-upserted"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/create_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/get-started/authentication"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/pinecone-clients"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/pinecone-attribute-errors-with-langchain"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/back-up-an-index"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/describe_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/release-notes"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/debug-model-vs-pinecone-recall-issues"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/azure"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/get-started/quickstart"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/databricks"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/login-code-issues"
+    },
+    {
+        "url": "https://docs.pinecone.io/release-notes/2022"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/differences-between-lexical-semantic-search"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/data-plane/delete"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/guides/organizations/manage-organization-members"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/reference/api/control-plane/delete_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/build-integration/register-your-integration"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/view-index-information"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/how-and-when-to-increase-index-size"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-billing/setting-up-billing-through-azure-marketplace"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/understanding-indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/tools"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/troubleshooting/parallel-queries"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/query"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/metadata-string-value-returned-as-datetime"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/understanding-collections"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/delete-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/aws"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/handle-deletes-by-metadata"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/understanding-projects"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/get-record-ids"
+    },
+    {
+        "url": "https://docs.pinecone.io/"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/data-plane/query"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/get-started/examples"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/return-all-vectors-in-an-index"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/operations/performance-tuning"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/choose-a-pod-type-and-size"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/keep-customer-data-separate"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/how-and-when-to-add-replicas"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/architecture/serverless-architecture"
+    },
+    {
+        "url": "https://docs.pinecone.io/release-notes/2023"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/scale-pod-based-indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/restrictions-on-index-names"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/security"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/delete_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/query-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/fetch-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/projects/set-a-project-pod-limit"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/understanding-hybrid-search"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-billing/understanding-subscription-status"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/langchain"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/fetch"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/create_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/describe_collection"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/delete-data"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/gcp"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/non-indexed-field-filter-issues"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/quotas-and-limits"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/configure-pod-based-indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/organizations/manage-billing/setting-up-billing-through-aws-marketplace"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/describe_index"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/data-plane/update"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/airbyte"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/create-and-load-private-datasets"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/introduction"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/best-practices"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/operations/monitoring"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/known-limitations"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/create_collection"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/export-indexes"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/data-plane/delete"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/api/control-plane/list_collections"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/nodejs-troubleshooting"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/build-integration/connect-to-pinecone-with-embedded-widget"
+    },
+    {
+        "url": "https://docs.pinecone.io/docs/namespaces"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/indexes/implement-multitenancy"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/operations/enable-aws-privatelink"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/select-index-type-and-size"
+    },
+    {
+        "url": "https://docs.pinecone.io/reference/community-libraries"
+    },
+    {
+        "url": "https://docs.pinecone.io/guides/data/encode-sparse-vectors"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/error-handshake-read-failed"
+    },
+    {
+        "url": "https://docs.pinecone.io/integrations/confluent"
+    },
+    {
+        "url": "https://docs.pinecone.io/troubleshooting/error-cannot-import-name-pinecone"
+    },
+    {
+        "url": "https://docs.pinecone.io/legacy/reference/api/control-plane/list_collections"
+    }
 ]

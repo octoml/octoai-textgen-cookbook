@@ -1,0 +1,926 @@
+[
+    {
+        "url": "https://octo.ai/docs/api-reference/secret/retrieve-secret-by-key"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/customizations/overview"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/events-logs/get-v1logs"
+    },
+    {
+        "url": "https://octo.ai/blog/introducing-octoais-embedding-api-to-power-your-rag-needs/"
+    },
+    {
+        "url": "https://octo.ai/docs/tutorials/llm-q-and-a-applications-using-langchain/python-wrapper-for-langchain"
+    },
+    {
+        "url": "https://octo.ai/cp/fine-tuning-private-preview/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/upscaling"
+    },
+    {
+        "url": "https://octo.ai/pricing/media-gen-solution/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/registry-credential/get-v1registry-credentials"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/migration-from-openai/"
+    },
+    {
+        "url": "https://octo.ai/blog/stable-diffusion-at-scale-designing-for-millions-of-daily-image-generations/"
+    },
+    {
+        "url": "https://octo.ai/blog/low-latency-json-mode-on-all-llms/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/sameer-farooqui/"
+    },
+    {
+        "url": "https://octo.ai/blog/the-beginners-guide-to-fine-tuning-stable-diffusion/"
+    },
+    {
+        "url": "https://octo.ai/docs/cli/cli-and-sdk-installation"
+    },
+    {
+        "url": "https://octo.ai/blog/author/luis-ceze/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-and-aws-collaboration-to-expand-developer-access-to-generative-ai/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/account/patch-v1account"
+    },
+    {
+        "url": "https://octo.ai/cp/image-generation-early-access/"
+    },
+    {
+        "url": "https://octo.ai/docs/bring-your-own-model/cli-and-sdk-installation"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/registry-credential/retrieve-registry-credentials-by-key"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2024/january"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/outpainting"
+    },
+    {
+        "url": "https://octo.ai/models/stable-diffusion/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/uploading-a-custom-asset-to-the-octoai-asset-library"
+    },
+    {
+        "url": "https://octo.ai/blog/blazing-fast-images-with-sdxl-lightning-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/blog/your-10-ai-resolutions-for-2024/"
+    },
+    {
+        "url": "https://octo.ai/docs/python-sdk/image-generator-client"
+    },
+    {
+        "url": "https://octo.ai/company/about/"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/llamaindex"
+    },
+    {
+        "url": "https://octo.ai/blog/up-to-9x-performance-improvements-with-tvm-s-new-auto-scheduler/"
+    },
+    {
+        "url": "https://octo.ai/blog/stable-diffusion-center-of-gravity-shifts-from-core-model-to-broader-ecosystem/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/secret/update-secret-by-key"
+    },
+    {
+        "url": "https://octo.ai/legals/privacy-policy/"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/create-endpoint-from-existing-container/create-custom-endpoints-from-a-container"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2024/march"
+    },
+    {
+        "url": "https://octo.ai/docs/cli/cli-reference-guide"
+    },
+    {
+        "url": "https://octo.ai/blog/introducing-stable-video-diffusion-svd-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/december"
+    },
+    {
+        "url": "https://octo.ai/blog/octostack-an-industry-leading-genai-production-stack-for-the-enterprise/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoais-adetailer-automatically-fixes-faces-and-hands/"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/getting-started"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/openrouter"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/image-gen-api/"
+    },
+    {
+        "url": "https://octo.ai/blog/latitude-games-lowers-costs-by-5x-and-unlocks-new-experiences-with-mixtral/"
+    },
+    {
+        "url": "https://octo.ai/"
+    },
+    {
+        "url": "https://octo.ai/docs/python-sdk/installation-and-setup"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/fine-tuning/get-tune"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/secret/post-v1secret"
+    },
+    {
+        "url": "https://octo.ai/docs/tutorials/llm-q-and-a-applications-using-langchain/python-wrapper-for-langchain/"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/inference-models"
+    },
+    {
+        "url": "https://octo.ai/cp/model-remix-program/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/fine-tuning/list-tunes"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/october"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-gen/ssd"
+    },
+    {
+        "url": "https://octo.ai/docs/python-sdk/python-sdk-inferences"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-utils/adetailer"
+    },
+    {
+        "url": "https://octo.ai"
+    },
+    {
+        "url": "https://octo.ai/blog/author/matthai-philipose/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/pete-sarabia/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/thierry-moreau/"
+    },
+    {
+        "url": "https://octo.ai/blog/othersideai-achieves-12x-reduction-in-llm-costs-with-mixtral-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/product/image-generation/"
+    },
+    {
+        "url": "https://octo.ai/resources/apache-tvm/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/video-gen"
+    },
+    {
+        "url": "https://octo.ai/blog/octoml-drives-down-costs-at-microsoft-through-new-integration-with-onnx-runtime/"
+    },
+    {
+        "url": "https://octo.ai/legals/terms-of-use/"
+    },
+    {
+        "url": "https://octo.ai/blog/metas-new-code-llama-70b-now-available-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/ben-hamm/"
+    },
+    {
+        "url": "https://octo.ai/docs/typescript-sdk/typescript-sdk-inferences"
+    },
+    {
+        "url": "https://octo.ai/docs/python-sdk/asset-orchestrator-client"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/august"
+    },
+    {
+        "url": "https://octo.ai/blog/octostudio-your-products-your-choice-of-visuals-your-galleries-powered-by-octoai/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/inpainting"
+    },
+    {
+        "url": "https://octo.ai/blog/from-gans-to-stable-diffusion-the-history-hype-and-promise-of-generative-ai/"
+    },
+    {
+        "url": "https://octo.ai/docs/private-deployment/octostack"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-is-now-ga-the-only-soc2-certified-production-grade-genai-platform/"
+    },
+    {
+        "url": "https://octo.ai/contact-us"
+    },
+    {
+        "url": "https://octo.ai/blog/author/jared-roesch/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/josh-fromm/"
+    },
+    {
+        "url": "https://octo.ai/legals/responsible-disclosure/"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/pinecone"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/migration-from-openai"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/registry-credential/update-registry-credentials-by-key"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/octoai-api/authentication"
+    },
+    {
+        "url": "https://octo.ai/blog/author/andrew-whitaker/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/rodney-shetler/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/photo-merge/"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/rate-limits"
+    },
+    {
+        "url": "https://octo.ai/docs/private-deployment/secure-link"
+    },
+    {
+        "url": "https://octo.ai/legals/safety-center/"
+    },
+    {
+        "url": "https://octo.ai/blog/build-ml-models-once-run-anywhere/"
+    },
+    {
+        "url": "https://octo.ai/cp/genai-in-your-environment/"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/rag"
+    },
+    {
+        "url": "https://octo.ai/contact-sales/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/optimizations/ssd"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/customizations/controlnets"
+    },
+    {
+        "url": "https://octo.ai/company/careers/"
+    },
+    {
+        "url": "https://octo.ai/blog/mix-and-match-styles-with-octoai-your-fine-tunes-and-community-tunes/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/instance-types/get-v1instance-types"
+    },
+    {
+        "url": "https://octo.ai/blog/author/angus-russell/"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/how-to-create-octoai-api-token/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/adetailer"
+    },
+    {
+        "url": "https://octo.ai/demos/video-generation-pipeline/"
+    },
+    {
+        "url": "https://octo.ai/cp/introducing-self-optimizing-compute/"
+    },
+    {
+        "url": "https://octo.ai/pricing/media-gen-solution"
+    },
+    {
+        "url": "https://octo.ai/models/"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/welcome/"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/llama-guard/"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/june"
+    },
+    {
+        "url": "https://octo.ai/blog/leveraging-block-sparsity-with-apache-tvm-to-halve-your-cloud-bill-for-nlp/"
+    },
+    {
+        "url": "https://octo.ai/cp/image-gen-promo-pricing/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/events-logs/get-v1events-stream"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/getting-started/how-to-create-an-octoai-access-token"
+    },
+    {
+        "url": "https://octo.ai/contact-us/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/sayce-falk/"
+    },
+    {
+        "url": "https://octo.ai/demos/"
+    },
+    {
+        "url": "https://octo.ai/docs/tutorials/image-generation-application-e2e-example"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/delete-v1endpoint"
+    },
+    {
+        "url": "https://octo.ai/blog/how-octoai-is-helping-truemedia-to-combat-deepfakes/"
+    },
+    {
+        "url": "https://octo.ai/blog/mixtral-8x7b-instruct-model-now-available-on-octoai-text-gen-solution/?utm_campaign=Mixtral+Blog&utm_source=OthersideAI-blog"
+    },
+    {
+        "url": "https://octo.ai/blog/author/jordan-janes/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/deepak-mohan/"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/compute-getting-started"
+    },
+    {
+        "url": "https://octo.ai/blog/author/vanessa-yan/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-gen/sd15"
+    },
+    {
+        "url": "https://octo.ai/blog/how-bad-is-the-ai-compute-shortage-really/"
+    },
+    {
+        "url": "https://octo.ai/blog/try-meta-llama-3-via-the-octoai-api/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-model-remix-program-shrinks-your-dependency-on-openai/"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/quickstart/"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/quickstart"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/create-new-endpoint"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/assets/retrieve-asset"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/customizations/checkpoints"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/events-logs/get-v1events"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/llama-guard"
+    },
+    {
+        "url": "https://octo.ai/blog/mixtral-8x22b-is-now-available-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/json-mode/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-gen/svd"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/unstructured"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/assets/complete-asset-upload"
+    },
+    {
+        "url": "https://octo.ai/blog/build-stunning-images-tailored-to-your-theme-with-octoai-style-presets-and-sdxl/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/getting-started"
+    },
+    {
+        "url": "https://octo.ai/blog/how-octoml-is-designed-to-deliver-faster-and-lower-cost-inferencing/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/brittany-carambio/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/get-v1endpoint-volume_token"
+    },
+    {
+        "url": "https://octo.ai/blog/author/tianqi-chen/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/text-gen/create-completion"
+    },
+    {
+        "url": "https://octo.ai/blog/fine-tuned-mistral-7b-delivers-over-60x-lower-costs-and-comparable-quality-to-gpt-4/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/michal-piszczek/"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/november"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/july"
+    },
+    {
+        "url": "https://octo.ai/octostack-demo/"
+    },
+    {
+        "url": "https://octo.ai/demos/pdf-summarizer/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/upscaling"
+    },
+    {
+        "url": "https://octo.ai/cp/model-remix-program/?utm_source=remix-blog&utm_campaign=remix-dec-2023"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/getting-started/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/fine-tuning-stable-diffusion/typescript-sdk-finetuning"
+    },
+    {
+        "url": "https://octo.ai/blog/build-on-open-large-language-models-with-octoai-endpoint-integration-in-langchain/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/octoai-api/inference"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/create-endpoint-from-existing-container/pulling-containers-from-a-private-registry"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/image-gen-api"
+    },
+    {
+        "url": "https://octo.ai/blog/author/ronny-hoesada/"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/using-unstructured-io-for-embedding-documents"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/photo-merge"
+    },
+    {
+        "url": "https://octo.ai/company/octoai-and-aws-better-together/"
+    },
+    {
+        "url": "https://octo.ai/blog/businesses-can-generate-customizable-avatars-using-octoais-photo-merge-feature/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/optimizations/sdxl-lighting/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/get-v1endpoint-containermetadata"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/health-check-path-in-custom-containers"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/privacy-and-security/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/greg-flanagan/"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/typescript-sdk"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/registry-credential/post-v1registry-credential"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/fine-tuning/delete-tune"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/cli-and-sdk-installation"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/secret/delete-secret-by-key"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/using-unstructured-io-for-embedding-documents/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/secret/get-v1secrets"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/bg-removal"
+    },
+    {
+        "url": "https://octo.ai/blog/capitol-ai-increases-speed-by-4x-and-reduces-costs-by-75-with-octoai/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-gen/controlnet-sdxl"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/how-to-create-an-octoai-access-token/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoml-easier-machine-learning/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/haleh-lewis/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/get-v1endpoints"
+    },
+    {
+        "url": "https://octo.ai/legals/data-privacy-framework-certification-notice/"
+    },
+    {
+        "url": "https://octo.ai/blog/making-the-llama-2-herd-work-for-you-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/matt-shumer/"
+    },
+    {
+        "url": "https://octo.ai/blog/introducing-inkymm-the-first-open-source-commercializable-multi-modal-model/"
+    },
+    {
+        "url": "https://octo.ai/blog/with-apache-tvm-microsoft-research-runs-the-latest-computer-vision-algorithms/"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/may"
+    },
+    {
+        "url": "https://octo.ai/company/security/"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/json-mode"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/customizations/loras"
+    },
+    {
+        "url": "https://octo.ai/docs/python-sdk/upgrading-from-old-sdk"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/customizations/textual-inversions"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-and-unstructured-create-new-integration/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-gen/controlnet-sd15"
+    },
+    {
+        "url": "https://octo.ai/blog/mixtral-8x7b-instruct-model-now-available-on-octoai-text-gen-solution/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/fine-tuning/create-tune"
+    },
+    {
+        "url": "https://octo.ai/blog/how-to-run-stable-diffusion-3x-faster-at-one-fifth-the-cost/"
+    },
+    {
+        "url": "https://octo.ai/blog/tinyml-tvm-taming-the-final-ml-frontier/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-brings-you-the-industrys-lowest-token-based-price-for-fine-tuned-llms/"
+    },
+    {
+        "url": "https://octo.ai/blog/unlocking-10x-performance-improvements-on-computer-vision-models/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/text-gen/create-chat-completion"
+    },
+    {
+        "url": "https://octo.ai/blog/stable-diffusion-xl-images-in-under-3-seconds-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/blog/announcing-availability-of-llama-2-chat-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/how-to-create-an-octoai-access-token"
+    },
+    {
+        "url": "https://octo.ai/blog/author/luis-vega/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/assets/list-assets"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/customizations/prompt-weighting"
+    },
+    {
+        "url": "https://octo.ai/blog/supercharge-rag-performance-using-octoai-and-unstructured-embeddings/"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2024/"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/langchain"
+    },
+    {
+        "url": "https://octo.ai/blog/author/janisha-anand/"
+    },
+    {
+        "url": "https://octo.ai/blog/announcing-octoai-image-gen-solution/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/get-v1endpoint"
+    },
+    {
+        "url": "https://octo.ai/blog/author/alyss-noland/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/jay-gu/"
+    },
+    {
+        "url": "https://octo.ai/docs/typescript-sdk/upgrading-from-old-sdk"
+    },
+    {
+        "url": "https://octo.ai/docs/bring-your-own-model/create-custom-endpoints-from-a-container/setting-account-wide-secrets-for-custom-endpoints"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-asset-orchestration-brings-the-rag-experience-to-image-generation/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/bear-douglas/"
+    },
+    {
+        "url": "https://octo.ai/pricing/"
+    },
+    {
+        "url": "https://octo.ai/blog/evaluating-gpt-j-deployment-options/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-utils/remove-background"
+    },
+    {
+        "url": "https://octo.ai/blog/running-the-industrys-most-cost-effective-llama-65b-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/registry-credential/delete-registry-credentials-by-key"
+    },
+    {
+        "url": "https://octo.ai/blog/announcing-octoai-text-gen-solution-blazing-fast-llama-2-code-llama-and-mistral/"
+    },
+    {
+        "url": "https://octo.ai/blog/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/fine-tuning/cancel-tune"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/create-endpoint-from-existing-container/setting-account-wide-secrets-for-custom-endpoints"
+    },
+    {
+        "url": "https://octo.ai/blog/author/denise-kutnick/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/tom-hallaran/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/public-endpoint/get-v1public-endpoints"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2024/february"
+    },
+    {
+        "url": "https://octo.ai/blog/author/andrew-luo/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-utils/upscaling"
+    },
+    {
+        "url": "https://octo.ai/blog/announcing-stable-diffusion-xl-1-0-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/product/octostack/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/optimizations/samplers"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/service-regions"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/optimizations/sdxl-lighting"
+    },
+    {
+        "url": "https://octo.ai/docs/typescript-sdk/installation-and-setup"
+    },
+    {
+        "url": "https://octo.ai/blog/author/justin-gage/"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/multi-user-accounts"
+    },
+    {
+        "url": "https://octo.ai/blog/whisperx-on-octoai-delivering-innovations-and-highest-quality-in-speech-to-text-at-6x-lower-costs/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/events-logs/get-v1logs-stream"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/image-utilities/adetailer"
+    },
+    {
+        "url": "https://octo.ai/blog/author/andrew-reusch/"
+    },
+    {
+        "url": "https://octo.ai/blog/how-4x-speedup-on-generative-video-model-film-created-huge-cost-savings-for-wombo/"
+    },
+    {
+        "url": "https://octo.ai/demos/q-a-on-custom-pdf/"
+    },
+    {
+        "url": "https://octo.ai/blog/nightcafe-studio-now-delivering-over-1-million-image-generation-inferences/"
+    },
+    {
+        "url": "https://octo.ai/docs/tutorials/llm-q-and-a-applications-using-langchain/environment-setup"
+    },
+    {
+        "url": "https://octo.ai/blog/author/nick-walton/"
+    },
+    {
+        "url": "https://octo.ai/docs/typescript-sdk/asset-library"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/advanced-build-a-container-from-scratch-in-python"
+    },
+    {
+        "url": "https://octo.ai/blog/author/jason-knight/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-provides-fastest-stable-diffusion-xl-endpoint/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/alex-burlacu/"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/privacy-and-security"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/endpoint/updates-an-endpoint"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/rest-api"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-gen/sdxl"
+    },
+    {
+        "url": "https://octo.ai/docs/text-gen-solution/python-sdk"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/fine-tuning-stable-diffusion/fine-tuning-stable-diffusion"
+    },
+    {
+        "url": "https://octo.ai/docs/compute-service/create-custom-endpoint-using-the-cli"
+    },
+    {
+        "url": "https://octo.ai/blog/on-the-apple-m1-beating-apple-s-core-ml-4-with-50-model-performance-improvements/"
+    },
+    {
+        "url": "https://octo.ai/docs/integrations/overview"
+    },
+    {
+        "url": "https://octo.ai/blog/acceleration-is-all-you-need-techniques-powering-octostacks-10x-performance-boost/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/pedro-torruella/"
+    },
+    {
+        "url": "https://octo.ai/cp/fine-tune-models-early-access/"
+    },
+    {
+        "url": "https://octo.ai/product/media-generation/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/assets/delete-asset"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/assets/create-asset"
+    },
+    {
+        "url": "https://octo.ai/pricing/text-gen-solution"
+    },
+    {
+        "url": "https://octo.ai/cp/model-serving-compute-access/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoml-profiler-provides-deep-intelligence-for-ml-models-in-pytorch-2-0/"
+    },
+    {
+        "url": "https://octo.ai/legals/acceptable-use-policy/"
+    },
+    {
+        "url": "https://octo.ai/blog/pytorch-2-0-apache-tvm-better-together/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/brunno-goldstein/"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/background-removal"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/pricing-and-billing/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/bassem-yacoube/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/media-utils/adetailer/"
+    },
+    {
+        "url": "https://octo.ai/blog/octoai-and-pinecone-partnership-for-genai-using-rag/"
+    },
+    {
+        "url": "https://octo.ai/blog/nightcafe-studio-delivers-over-400k-daily-sdxl-image-creations-for-users/"
+    },
+    {
+        "url": "https://octo.ai/blog/introducing-tvms-metaschedule/"
+    },
+    {
+        "url": "https://octo.ai/docs/bring-your-own-model/create-custom-endpoints-from-a-container/pulling-containers-from-a-private-registry"
+    },
+    {
+        "url": "https://octo.ai/docs/media-gen-solution/rest-apis/video-gen/"
+    },
+    {
+        "url": "https://octo.ai/docs/api-reference/account/get-v1account"
+    },
+    {
+        "url": "https://octo.ai/docs/getting-started/pricing-and-billing"
+    },
+    {
+        "url": "https://octo.ai/demos/doctalk/"
+    },
+    {
+        "url": "https://octo.ai/pricing"
+    },
+    {
+        "url": "https://octo.ai/blog/octoml-launches-octoai-an-ai-compute-service/"
+    },
+    {
+        "url": "https://octo.ai/blog/reduce-llm-costs-for-text-summarization-by-over-50-percent-with-mixtral-on-octoai/"
+    },
+    {
+        "url": "https://octo.ai/blog/nightcafe-studio-pioneering-ai-driven-art-creation-through-community-engagement/"
+    },
+    {
+        "url": "https://octo.ai/product/text-generation/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/an-wang/"
+    },
+    {
+        "url": "https://octo.ai/docs"
+    },
+    {
+        "url": "https://octo.ai/docs/faqs/open-source-licenses"
+    },
+    {
+        "url": "https://octo.ai/blog/get-the-most-from-your-data-with-octostack-and-snowflake/"
+    },
+    {
+        "url": "https://octo.ai/blog/author/loc-huynh/"
+    },
+    {
+        "url": "https://octo.ai/blog/building-the-octoai-asset-orchestrator-an-engineering-perspective/"
+    },
+    {
+        "url": "https://octo.ai/docs/release-notes/2023/september"
+    },
+    {
+        "url": "https://octo.ai/pricing/text-gen-solution/"
+    },
+    {
+        "url": "https://octo.ai/blog/30-days-of-llama-3-newest-member-of-the-herd-is-living-up-to-the-hype/"
+    }
+]
