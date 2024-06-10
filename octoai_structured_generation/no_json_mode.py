@@ -18,7 +18,8 @@ load_dotenv()
 
 API_KEY = os.environ.get("OCTOAI_TOKEN")
 SAVE_TO_FILE = os.environ.get("SAVE_BENCHMARK_RESULTS")
-USE_PRIMING = os.environ.get("USE_PRIMING") in ["1", "yes", "y", "true"]
+NUM_PRODUCTS = int(os.environ.get("NUM_PRODUCTS", "5"))
+USE_PREFILL = os.environ.get("USE_PREFILL") in ["1", "yes", "y", "true"]
 MODEL = os.environ.get("MODEL_NAME", "mistral-7b-instruct")
 SYSTEM_PROMPT = ("You are an helpful AI assistant helping a Senior Product Manager create user tickets for relevant issues."
                  " You must ensure that your responses only refer to the user feedback you received and nothing more."
@@ -35,7 +36,7 @@ if MODEL not in ["mistral-7b-instruct",
                  "meta-llama-3-70b-instruct"], "but got:", MODEL)
 
 
-print("USE_PRIMING=", USE_PRIMING)
+print("USE_PREFILL=", USE_PREFILL)
 print("MODEL=", MODEL)
 print("SYSTEM_PROMPT=", SYSTEM_PROMPT)
 
@@ -92,10 +93,10 @@ def structure_customer_feedback(client: openai.OpenAI, info: str, review: str, s
                 }
             ]
 
-    if USE_PRIMING:
+    if USE_PREFILL:
         messages.append({
                     "role": "assistant",
-                    # NOTE: this is called priming
+                    # NOTE: this is called prefilling
                     "content": assistant_seed,
                 })
 
@@ -107,7 +108,7 @@ def structure_customer_feedback(client: openai.OpenAI, info: str, review: str, s
         )
 
         benchmark_client.add_input_tokens(run_id, chat_completion.usage)
-        prefix = assistant_seed if USE_PRIMING else ""
+        prefix = assistant_seed if USE_PREFILL else ""
         valid_response, is_error = parse_json(prefix + chat_completion.choices[0].message.content, schema=schema)
 
         if not is_error:
@@ -136,10 +137,10 @@ def prepare_jira_ticket_info(client: openai.OpenAI, customer_issues: List[Custom
                 }
             ]
 
-    if USE_PRIMING:
+    if USE_PREFILL:
         messages.append({
                     "role": "assistant",
-                    # NOTE: this is called priming
+                    # NOTE: this is called prefilling
                     "content": assistant_seed,
                 })
 
@@ -151,7 +152,8 @@ def prepare_jira_ticket_info(client: openai.OpenAI, customer_issues: List[Custom
         )
 
         benchmark_client.add_input_tokens(run_id, chat_completion.usage)
-        valid_response, is_error = parse_json(assistant_seed + chat_completion.choices[0].message.content, schema=schema)
+        prefix = assistant_seed if USE_PREFILL else ""
+        valid_response, is_error = parse_json(prefix + chat_completion.choices[0].message.content, schema=schema)
 
         if not is_error:
             benchmark_client.end(run_id)
@@ -225,7 +227,6 @@ if __name__ == "__main__":
 
 
     # 1: structure_customer_feedback
-    NUM_PRODUCTS = 5
     customer_feedbacks = []
     for example in dataset.select(range(NUM_PRODUCTS)):
         long_description = example["title"] + "\n" + "".join(example["description"])

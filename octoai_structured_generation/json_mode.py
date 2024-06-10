@@ -19,6 +19,7 @@ load_dotenv()
 
 API_KEY = os.environ.get("OCTOAI_TOKEN")
 SAVE_TO_FILE = os.environ.get("SAVE_BENCHMARK_RESULTS")
+NUM_PRODUCTS = int(os.environ.get("NUM_PRODUCTS", "5"))
 MODEL = os.environ.get("MODEL_NAME", "mistral-7b-instruct")
 SYSTEM_PROMPT = ("You are an helpful AI assistant helping a Senior Product Manager create user tickets for relevant issues."
                  " You must ensure that your responses only refer to the user feedback you received and nothing more.")
@@ -155,7 +156,6 @@ if __name__ == "__main__":
 
 
     # 1: structure_customer_feedback
-    NUM_PRODUCTS = 5
     customer_feedbacks = []
     for example in dataset.select(range(NUM_PRODUCTS)):
         long_description = example["title"] + "\n" + "".join(example["description"])
