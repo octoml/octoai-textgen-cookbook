@@ -67,12 +67,18 @@ def structure_customer_feedback(client: openai.OpenAI, info: str, review: str, b
                 "content": f"Product Description:\n{info}\n========\nReview:\n{review}",
             },
         ],
-        temperature=0,
+        temperature=0.1,
+        max_tokens=4096,
         response_format={"type": "json_object", "schema": CustomerFeedback.model_json_schema()},
     )
     benchmark_client.add_input_tokens(run_id, chat_completion.usage)
-    benchmark_client.end(run_id)
-    return json.loads(chat_completion.choices[0].message.content)
+    try:
+        response = json.loads(chat_completion.choices[0].message.content)
+        benchmark_client.end(run_id)
+        return response
+    except Exception:
+        benchmark_client.end_with_error(run_id)
+        print("DEBUG >>>>", chat_completion)
 
 
 def prepare_jira_ticket_info(client: openai.OpenAI, customer_issues: List[CustomerFeedback], benchmark_client: Benchmark):
@@ -87,12 +93,18 @@ def prepare_jira_ticket_info(client: openai.OpenAI, customer_issues: List[Custom
                 "content": "Important note, for the `issue_description` field, please summarize the following customer reviews according to the schema." + "\n\n" + related_reviews,
             },
         ],
-        temperature=0,
+        temperature=0.1,
         response_format={"type": "json_object", "schema": JIRATicket.model_json_schema()},
+        max_tokens=4096,
     )
     benchmark_client.add_input_tokens(run_id, chat_completion.usage)
-    benchmark_client.end(run_id)
-    return json.loads(chat_completion.choices[0].message.content)
+    try:
+        response = json.loads(chat_completion.choices[0].message.content)
+        benchmark_client.end(run_id)
+        return response
+    except Exception:
+        benchmark_client.end_with_error(run_id)
+        print("DEBUG >>>>", chat_completion)
 
 
 
