@@ -1,6 +1,6 @@
-# Toxicity classification at 125x lower costs and better-than-GPT 4 quality, with fine-tuneed Mistral 7B
+# Toxicity classification at 60x lower costs and better-than-GPT 4 quality, with fine-tuneed Mistral 7B
 
-This repository contains the necessary code to collect a dataset from GPT-4 responses and then to evaluate a fine-tuned model against various OctoAI and OpenAI models. If you want to check out the cost efficiency gains from fine-tuning, check out [this blog post](...).
+This repository contains the necessary code to collect a dataset from GPT-4 responses and then to evaluate a fine-tuned model against various OctoAI and OpenAI models. If you want to check out the cost efficiency gains from fine-tuning, check out [this blog post](https://octo.ai/blog/fine-tuned-mistral-7b-delivers-over-60x-lower-costs-and-comparable-quality-to-gpt-4/).
 
 Feel free to grab this code and an `OCTOAI_API_TOKEN`, and
 build your LLM-powered applications today!
