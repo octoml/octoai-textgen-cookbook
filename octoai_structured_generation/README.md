@@ -1,6 +1,6 @@
 # Structured Outputs Blog TK
 
-This repository contains the necessary code to run and compare OctoAI Structured Generation with a DIY solution for converting product reviews to JSON payloads for JIRA. If you want to dive into more details about OctoAI's JSON mode/Structured Generation capabilities, check out [this blog post](...).
+This repository contains the necessary code to run and compare OctoAI Structured Generation with a DIY solution for converting product reviews to JSON payloads for JIRA. If you want to dive into more details about OctoAI's JSON mode/Structured Generation capabilities, check out [this blog post](https://octo.ai/blog/streamline-jira-ticket-creation-with-octoai-s-structured-outputs/).
 
 Feel free to grab this code and an `OCTOAI_API_TOKEN`, and
 build your LLM-powered applications today!
