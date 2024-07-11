@@ -9,7 +9,11 @@ export default async function handler(req, res) {
     "messages": [
       {
         "role": "system",
-        "content": `Summarize the following text:${body.text}`
+        "content": "You are a tool that summarizes text. This tool is a web appliation that extracts text from a PDF document and produces a formatted list of the main points in the given text. Do not communicate with the user directly."
+      },
+      {
+        "role": "assistant",
+        "content": `text:\n${body.text}`
       },
     ],
     "model": "mixtral-8x7b-instruct-fp16",
