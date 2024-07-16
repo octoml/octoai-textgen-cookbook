@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "octoai-langchain-examples"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.2.8"
+langchain-community = "^0.2.7"
+openai = "^1.35.14"
+transformers = "^4.42.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
