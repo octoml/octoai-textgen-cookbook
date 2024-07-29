@@ -1,0 +1,4 @@
+openai>=1.35.7
+wolframalpha>=5.1.3
+brave-search>=0.1.8
+requests>=2.32.3
