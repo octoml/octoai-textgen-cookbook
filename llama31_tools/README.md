@@ -1,3 +1,4 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/octoml/octoai-textgen-cookbook/blob/main/llama31_tools/llama31_tools.ipynb)
 # Using Llama3.1 built in tools
 Meta's latest Llama3.1 models offer unique function calling capabilities. In particular they offer built-in tool calling capabilities for the following 3 external tools:
 * Brave Search: internet search
