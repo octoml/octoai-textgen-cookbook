@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "main": "tsx ./main.ts"
+  },
+  "dependencies": {
+    "@octoai/sdk": "^1.3.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.2"
+  }
+}
