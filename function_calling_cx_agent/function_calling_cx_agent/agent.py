@@ -16,7 +16,7 @@ from enum import Enum
 
 load_dotenv()
 
-
+CUSTOMER_ISSUES_REGISTRY = []
 
 class ReviewCategory(Enum):
     ProductQuality = 'product quality'
@@ -36,6 +36,25 @@ class JIRATicket(BaseModel):
     category: ReviewCategory = Field("What category is the given issue.")
 
 
+API_KEY = os.environ.get("OCTOAI_TOKEN")
+NUM_PRODUCTS = int(os.environ.get("NUM_PRODUCTS", "5"))
+FUNCTION_MODEL = os.environ.get("FUNCTION_MODEL_NAME", "meta-llama-3.1-8b-instruct")
+JSON_MODEL = "meta-llama-3-8b-instruct"
+SYSTEM_PROMPT = ("You are an helpful AI assistant helping a Senior Customer Success Manager interact with users and create user tickets for relevant issues."
+                 " You must ensure that you call one of the provided functions if necessary, and only refer to the user feedback you received and nothing more."
+                 " You can ask for clarifications multiple times, but thanking the user or asking forgiveness should be done just once.")
+
+if FUNCTION_MODEL not in ["meta-llama-3.1-8b-instruct",
+                          "meta-llama-3.1-405b-instruct",
+                          "meta-llama-3.1-70b-instruct"]:
+    raise ValueError("The env var FUNCTION_MODEL_NAME should be one of:",
+                     ["meta-llama-3.1-8b-instruct",
+                      "meta-llama-3.1-405b-instruct",
+                      "meta-llama-3.1-70b-instruct"], "but got:", FUNCTION_MODEL)
+
+print("FUNCTION_MODEL =", FUNCTION_MODEL)
+print("JSON_MODEL =", JSON_MODEL)
+print("SYSTEM_PROMPT =", SYSTEM_PROMPT)
 
 
 FUNCTION_DEFINITIONS = [
@@ -54,7 +73,7 @@ FUNCTION_DEFINITIONS = [
                 },
                 "required": ["reply_to_customer_review"]
             }
-            # returns: Nothing, but we can simulate that it does recieve a reply from the user, just for this demo
+            # NOTE: Normally this should return nothing, but we can simulate that it does recieve a reply from the user, just for this demo
         }
     },
     {
@@ -72,7 +91,6 @@ FUNCTION_DEFINITIONS = [
                 },
                 "required": ["thank_you_note"]
             }
-            # returns: Nothing
         }
     },
     {
@@ -92,7 +110,8 @@ FUNCTION_DEFINITIONS = [
                         "description": "A short description of the customer issue."
                     },
                     "issue_category": {
-                        "type": "enum", # TODO: ReviewCategory
+                        "type": "string",
+                        "enum": [category.value for category in ReviewCategory],
                         "description": "What category is the given customer issue."
                     },
                     "sorry_note": {
@@ -102,110 +121,139 @@ FUNCTION_DEFINITIONS = [
                 },
                 "required": ["product_name", "issue_description", "issue_category", "sorry_note"]
             }
-            # returns: Nothing
         }
     },
 ]
 
 
+print(FUNCTION_DEFINITIONS)
+
+
+def ask_for_more_information(reply_to_customer_review: str, **kwargs) -> dict:
+    """In a real-world implementation this will need to actually reply to the user feedback, possibly via a REST API"""
+    feedback_content = kwargs.get("feedback_content", "")
+    product_info = kwargs.get("product_info", "")
+
+    messages = [
+        {"role": "system", "content": "Assume that you're a customer who left a product review. Be helpful and cooperate with the customer success manager two find a solution."},
+        {
+            "role": "user",
+            "content": f"For some context. Given this product description:\n{product_info}\n\n And this review that you left:\n{feedback_content}\n\nThe representative of the product replied to your feedback:\n\n{reply_to_customer_review}\n\nPlease answer them.",
+        },
+    ]
+
+    chat_completion = client.chat.completions.create(
+        model=JSON_MODEL,
+        messages=messages,
+        temperature=0.1,
+        max_tokens=4096
+    )
+
+    return {"user_reply": chat_completion.choices[0].message.content}
+
+
+def say_thanks(thank_you_note: str, **kwargs) -> dict:
+    """In a real-world implementation this will need to actually reply to the user feedback, possibly via a REST API"""
+    print(">>> Called say_thanks")
+    return {"status": "submitted successfully"}
+
+
+def label_feedback_as_issue_and_apologize(product_name: str, issue_description: str, issue_category: str, sorry_note: str, **kwargs) -> dict:
+    """In a real-world implementation this will need to actually reply to the user feedback, possibly via a REST API"""
+    global CUSTOMER_ISSUES_REGISTRY
+    CUSTOMER_ISSUES_REGISTRY.append({"product_name": product_name, "category": issue_category, "description": issue_description})
+    print(">>> Called label_feedback_as_issue_and_apologize")
+    return {"status": "submitted successfully"}
+
+
 LLM_FUNCTIONS = {
-    "label_feedback_as_issue_and_apologize": NotImplemented,
-    "say_thanks": NotImplemented,
-    "ask_for_more_information": NotImplemented
+    "label_feedback_as_issue_and_apologize": label_feedback_as_issue_and_apologize,
+    "say_thanks": say_thanks,
+    "ask_for_more_information": ask_for_more_information
 }
 
 
-API_KEY = os.environ.get("OCTOAI_TOKEN")
-NUM_PRODUCTS = int(os.environ.get("NUM_PRODUCTS", "5"))
-MODEL = os.environ.get("MODEL_NAME", "meta-llama-3.1-8b-instruct")
-SYSTEM_PROMPT = ("You are an helpful AI assistant helping a Senior Product Manager create user tickets for relevant issues."
-                 " You must ensure that your call one of the provided functions, and only refer to the user feedback you received and nothing more.")
 
-if MODEL not in ["meta-llama-3.1-405b-instruct",
-                 "meta-llama-3.1-8b-instruct",
-                 "meta-llama-3.1-70b-instruct"]:
-    raise ValueError("The env var MODEL_NAME should be one of:",
-                     ["meta-llama-3.1-405b-instruct",
-                      "meta-llama-3.1-8b-instruct",
-                      "meta-llama-3.1-70b-instruct"], "but got:", MODEL)
-
-print("MODEL=", MODEL)
-print("SYSTEM_PROMPT=", SYSTEM_PROMPT)
-
-
-
-def process_review(client: openai.OpenAI, info: str, review: str):
+def process_review(client: openai.OpenAI, product_info: str, feedback_content: str):
     # NOTE: because it uses function calling, it may require multiple messages before returing
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {
             "role": "user",
-            "content": f"Product Description:\n{info}\n========\nReview:\n{review}",
+            "content": f"Product Description:\n{product_info}\n========\nReview:\n{feedback_content}",
         },
     ]
 
-
     chat_completion = client.chat.completions.create(
-        model=MODEL,
+        model=FUNCTION_MODEL,
         messages=messages,
         temperature=0.1,
         max_tokens=4096,
         tools=FUNCTION_DEFINITIONS,
-        tool_choice="required",
+        tool_choice="auto",
     )
 
     agent_response = chat_completion.choices[0].message
+    if not agent_response.tool_calls:
+        return
+
     messages.append(
         {
             "role": agent_response.role,
             "content": "",
             "tool_calls": [
                 tool_call.model_dump()
-                for tool_call in chat_completion.choices[0].message.tool_calls
+                for tool_call in agent_response.tool_calls
             ]
         }
     )
 
-    tool_calls = chat_completion.choices[0].message.tool_calls
+    tool_calls = agent_response.tool_calls
 
-    while tool_calls:
+    abort_counter = 3
+    while abort_counter > 0:
         for tool_call in tool_calls:
             function_name = tool_call.function.name
             function_args = json.loads(tool_call.function.arguments)
             # Call the function to get the response
-            function_response = LLM_FUNCTIONS[function_name](**function_args)
+            function_response = LLM_FUNCTIONS[function_name](feedback_content=feedback_content, product_info=product_info, **function_args)
             # Add the function response to the messages block
             messages.append(
                 {
                     "tool_call_id": tool_call.id,
                     "role": "tool",
                     "name": function_name,
-                    "content": function_response,
+                    "content": str(function_response),
                 }
             )
 
         function_enriched_response = client.chat.completions.create(
-            model=MODEL,
+            model=FUNCTION_MODEL,
             messages=messages,
             tools=FUNCTION_DEFINITIONS,
             tool_choice="auto",
-            temperature=0.1,
+            temperature=0.2,
             max_tokens=4096,
         )
 
         agent_response = function_enriched_response.choices[0].message
-        messages.append(
-            {
-                "role": agent_response.role,
-                "content": "",
-                "tool_calls": [
-                    tool_call.model_dump()
-                    for tool_call in function_enriched_response.choices[0].message.tool_calls
-                ]
-            }
-        )
+        if not agent_response.tool_calls:
+            break
+        else:
+            messages.append(
+                {
+                    "role": agent_response.role,
+                    "content": "",
+                    "tool_calls": [
+                        tool_call.model_dump()
+                        for tool_call in function_enriched_response.choices[0].message.tool_calls
+                    ]
+                }
+            )
 
-        tool_calls = function_enriched_response.choices[0].message.tool_calls
+            tool_calls = function_enriched_response.choices[0].message.tool_calls
+
+            abort_counter -= 1
 
     return function_enriched_response.choices[0].message.content
 
@@ -213,7 +261,7 @@ def process_review(client: openai.OpenAI, info: str, review: str):
 def prepare_jira_ticket_info(client: openai.OpenAI, customer_issues: List[dict]):
     related_reviews = "\n========\n".join([f"Review:\nProduct Name: {issue['product_name']} (Category - {issue['category']})\n\nIssue:\n{issue['description']}" for issue in customer_issues])
     chat_completion = client.chat.completions.create(
-        model=MODEL,
+        model=JSON_MODEL,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {
@@ -297,15 +345,16 @@ if __name__ == "__main__":
         product_reviews = search_parent_asin(reviews, example["parent_asin"])
         for review in product_reviews:
             customer_feedback = process_review(client, long_description, review["text"])
+            print(customer_feedback)
             customer_feedbacks.append(customer_feedback)
 
 
-    print("products =", NUM_PRODUCTS, "issues =", len(customer_issues), "feedbacks =", len(customer_feedbacks))
+    print("products =", NUM_PRODUCTS, "issues =", len(CUSTOMER_ISSUES_REGISTRY), "feedbacks =", len(customer_feedbacks))
 
 
     # 3: group by high similarity using GTE model from OctoAI
     issue_embeddings = []
-    for issue in customer_issues:
+    for issue in CUSTOMER_ISSUES_REGISTRY:
         # NOTE: need to check context legnth of the model
         resp = client.embeddings.create(
             model="thenlper/gte-large",
@@ -316,7 +365,7 @@ if __name__ == "__main__":
 
     issue_embeddings = np.array(issue_embeddings)
 
-    grouped_customer_issues = group_customer_issues(customer_issues, issue_embeddings)
+    grouped_customer_issues = group_customer_issues(CUSTOMER_ISSUES_REGISTRY, issue_embeddings)
 
 
     # 4: Summarize the issue groups and make them into JIRA Tickets
