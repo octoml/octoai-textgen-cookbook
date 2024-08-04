@@ -16,10 +16,6 @@ from enum import Enum
 
 load_dotenv()
 
-# https://github.com/octoml/octoai-textgen-cookbook/blob/main/llama31_tools/llama31_tools.ipynb
-# https://docs.anthropic.com/en/docs/build-with-claude/tool-use
-# https://docs.cohere.com/docs/tool-use
-
 
 API_KEY = os.environ.get("OCTOAI_TOKEN")
 NUM_PRODUCTS = int(os.environ.get("NUM_PRODUCTS", "5"))
@@ -349,7 +345,6 @@ if __name__ == "__main__":
         product_reviews = search_parent_asin(reviews, example["parent_asin"])
         for review in product_reviews:
             customer_feedback = process_review(client, long_description, review["text"])
-            print(customer_feedback)
             customer_feedbacks.append(customer_feedback)
 
 
