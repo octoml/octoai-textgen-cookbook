@@ -8,7 +8,7 @@ build your LLM-powered applications today!
 
 ## Setup
 
-Before running anything, please first install the necessary dependencies with `pip install -r requirements.txt` and make sure to specify your `OCTOAI_TOKEN` in the `.env` file.
+Before running anything, please first install the necessary dependencies with `poetry install` and make sure to specify your `OCTOAI_TOKEN` in the `.env` file.
 
 ## Dataset
 
@@ -22,11 +22,11 @@ See `agent.py` file. It will read the specified number of product descriptions, 
 Both scripts require most of the same parameters, provided via environment variables.
 
 - `NUM_PRODUCTS`: number of products to process. This is not the number of unique reviews, but only of unique products. By default it's 5.
-- `MODEL_NAME`: should be one of the supported OctoAI models. The supported models are: `mistral-7b-instruct`, `mixtral-8x7b-instruct`, `meta-llama-3-8b-instruct`, `meta-llama-3-70b-instruct`. The default value is `mistral-7b-instruct`.
+- `FUNCTION_MODEL_NAME`: should be one of the OctoAI models that supports Function Calling. Currently these models are: `meta-llama-3.1-8b-instruct`, `meta-llama-3.1-70b-instruct`, and `meta-llama-3.1-405b-instruct`. The default value is `meta-llama-3.1-8b-instruct`.
 
 
-Here's an example how to run `agent.py` using Meta Llama 3 8B parameter model and process the reviews from 10 products.
+Here's an example how to run `agent.py` using the newest Meta Llama 3.1 405B parameter model and process the reviews from 10 products.
 
 ```bash
-MODEL_NAME=meta-llama-3-8b-instruct NUM_PRODUCTS=10 python agent.py
+FUNCTION_MODEL_NAME=meta-llama-3.1-405b-instruct NUM_PRODUCTS=10 poetry run python -m function_calling_cx_agent.agent
 ```
