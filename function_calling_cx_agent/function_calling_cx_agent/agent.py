@@ -16,24 +16,9 @@ from enum import Enum
 
 load_dotenv()
 
-CUSTOMER_ISSUES_REGISTRY = []
-
-class ReviewCategory(Enum):
-    ProductQuality = 'product quality'
-    Packaging = 'packaging'
-    Shipping = 'shipping'
-    UnclearInstructions = 'unclear instructions'
-    ContentQuality = 'content quality'
-    SubscriptionAndBilling = 'subscription and billing'
-    Other = 'other'
-
-
-class JIRATicket(BaseModel):
-    issue_title: str = Field("A short title explaining the core of the issue. Should be 8 words maximum.")
-    issue_description: str = Field("A clear and descriptive explanation of what the issue is, what product does it relate to, how the customer is affected, and other relevant information.")
-    is_urgent_reasoning: str = Field("An explanation whether the specific customer issue needs urgent fixing or not.")
-    is_urgent: bool = Field("A true/false value indicating whether the issue needs urgent fixing or not. 'true' if it's urgent, 'false' otherwise")
-    category: ReviewCategory = Field("What category is the given issue.")
+# https://github.com/octoml/octoai-textgen-cookbook/blob/main/llama31_tools/llama31_tools.ipynb
+# https://docs.anthropic.com/en/docs/build-with-claude/tool-use
+# https://docs.cohere.com/docs/tool-use
 
 
 API_KEY = os.environ.get("OCTOAI_TOKEN")
@@ -56,13 +41,33 @@ print("FUNCTION_MODEL =", FUNCTION_MODEL)
 print("JSON_MODEL =", JSON_MODEL)
 print("SYSTEM_PROMPT =", SYSTEM_PROMPT)
 
+CUSTOMER_ISSUES_REGISTRY = []
+
+
+class ReviewCategory(Enum):
+    ProductQuality = 'product quality'
+    Packaging = 'packaging'
+    Shipping = 'shipping'
+    UnclearInstructions = 'unclear instructions'
+    ContentQuality = 'content quality'
+    SubscriptionAndBilling = 'subscription and billing'
+    Other = 'other'
+
+
+class JIRATicket(BaseModel):
+    issue_title: str = Field("A short title explaining the core of the issue. Should be 8 words maximum.")
+    issue_description: str = Field("A clear and descriptive explanation of what the issue is, what product does it relate to, how the customer is affected, and other relevant information.")
+    is_urgent_reasoning: str = Field("An explanation whether the specific customer issue needs urgent fixing or not.")
+    is_urgent: bool = Field("A true/false value indicating whether the issue needs urgent fixing or not. 'true' if it's urgent, 'false' otherwise")
+    category: ReviewCategory = Field("What category is the given issue.")
+
 
 FUNCTION_DEFINITIONS = [
     {
         "type": "function",
         "function": {
             "name": "ask_for_more_information",
-            "description": "Ask for more details regarding the review. Should be use to clarify what exactly is the issue, so that it's easier to fix it later.",
+            "description": "Ask for more details regarding the review. Should be used to clarify what exactly is the issue, so that it's easier to fix it later. This function can be called multiple times.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -80,7 +85,7 @@ FUNCTION_DEFINITIONS = [
         "type": "function",
         "function": {
             "name": "say_thanks",
-            "description": "Thank the user for the review they left. Should be used if the review is a positive one, with praise.",
+            "description": "Thank the user for the review they left. Should be used if the review is a positive one, with praise. This function must never be called more than once.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -97,7 +102,7 @@ FUNCTION_DEFINITIONS = [
         "type": "function",
         "function": {
             "name": "label_feedback_as_issue_and_apologize",
-            "description": "Ask forgiveness from the user and assure them that the issue will be fixed. Should be used if the review is a negative one, or it's definitive that there's an issue, and it's very clear what the issue is.",
+            "description": "Ask forgiveness from the user and assure them that the issue will be fixed. Should be used if the review is a negative one, or it's definitive that there's an issue, and it's very clear what the issue is. This function must never be called more than once.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -169,9 +174,9 @@ def label_feedback_as_issue_and_apologize(product_name: str, issue_description: 
 LLM_FUNCTIONS = {
     "label_feedback_as_issue_and_apologize": label_feedback_as_issue_and_apologize,
     "say_thanks": say_thanks,
-    "ask_for_more_information": ask_for_more_information
+    "ask_for_more_information": ask_for_more_information,
+    # NOTE: you can even implement a RAG-function using the products' documentation, to let the agent answer some of the users' questions
 }
-
 
 
 def process_review(client: openai.OpenAI, product_info: str, feedback_content: str):
@@ -278,7 +283,6 @@ def prepare_jira_ticket_info(client: openai.OpenAI, customer_issues: List[dict])
         return response
     except Exception:
         print("DEBUG >>>>", chat_completion)
-
 
 
 def search_parent_asin(reviews, parent_asin):
