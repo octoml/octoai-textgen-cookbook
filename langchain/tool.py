@@ -28,7 +28,7 @@ tools = [
 
 model = ChatOpenAI(
     model="mistral-7b-instruct",
-    openai_api_key=os.environ["OCTOAI_API_TOKEN"],
+    openai_api_key=os.environ["OCTOAI_API_KEY"],
     openai_api_base="https://text.octoai.run/v1",
 ).bind(tools=tools)
 

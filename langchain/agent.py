@@ -26,8 +26,8 @@ def get_flight_status(flight_number: FlightNumber, date: Date):
 tools = [get_flight_status]
 
 model = ChatOpenAI(
-    model="meta-llama-3-70b-instruct",
-    openai_api_key=os.environ["OCTOAI_API_TOKEN"],
+    model="meta-llama-3.1-70b-instruct",
+    openai_api_key=os.environ["OCTOAI_API_KEY"],
     openai_api_base="https://text.octoai.run/v1",
 )
 
