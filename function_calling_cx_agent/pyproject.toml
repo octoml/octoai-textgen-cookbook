@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "function-calling-cx-agent"
+version = "0.1.0"
+description = ""
+authors = ["Alex Burlacu <alexburlacu96@gmail.com>"]
+readme = "README.md"
+packages = [{include = "function_calling_cx_agent"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+urllib3 = "2.2.1"
+datasets = "2.19.1"
+numpy = "1.26.4"
+octoai-sdk = "0.10.1"
+openai = "1.30.2"
+pandas = "2.2.2"
+pydantic = "2.7.1"
+pydantic-core = "2.18.2"
+python-dotenv = "1.0.1"
+scipy = "1.13.1"
+requests = "2.32.2"
+jsonschema = "4.22.0"
+jsonschema-specifications = "2023.12.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
