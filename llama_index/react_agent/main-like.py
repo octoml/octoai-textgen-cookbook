@@ -1,21 +1,4 @@
 import os
-import arize_otel
-
-# Import open-telemetry dependencies
-from arize_otel import register_otel, Endpoints
-
-# Setup OTEL via our convenience function
-register_otel(
-    endpoints=Endpoints.ARIZE,
-    space_key="137deb0",  # in app Space settings page
-    api_key="5cb9e48c89bdcd3438b",
-    model_id="llamaindex-agent",
-)
-# Import the automatic instrumentor from OpenInference
-from openinference.instrumentation.llama_index import LlamaIndexInstrumentor
-
-# Finish automatic instrumentation
-LlamaIndexInstrumentor().instrument()
 
 
 # llama_index
@@ -37,9 +20,6 @@ llm = OpenAILike(
     is_function_calling_model=True,
     is_chat_model=True,
 )
-
-# response = llm.complete("Hello World!")
-# print(str(response))
 
 agent = ReActAgent.from_tools(
     tools=[

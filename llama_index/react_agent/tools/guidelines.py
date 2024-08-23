@@ -6,8 +6,15 @@ from llama_index.readers.file import PDFReader
 
 data = PDFReader().load_data(file="guidelines.pdf")
 
+from os import environ
+from llama_index.embeddings.octoai import OctoAIEmbedding
 
-index = VectorStoreIndex.from_documents(data, show_progress=False)
+OCTOAI_API_KEY = environ.get("OCTOAI_API_KEY")
+embed_model = OctoAIEmbedding(api_key=OCTOAI_API_KEY)
+
+index = VectorStoreIndex.from_documents(
+    data, show_progress=False, embed_model=embed_model
+)
 
 
 query_engine = index.as_query_engine()
