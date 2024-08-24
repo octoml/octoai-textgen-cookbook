@@ -1,10 +1,15 @@
 import os
 from langchain_openai import ChatOpenAI
 
-from langgraph.prebuilt import create_react_agent
+
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+
 from langchain_core.messages import HumanMessage
 from langchain.tools import tool
 from langchain.pydantic_v1 import BaseModel, Field
+
+from langchain.agents import AgentExecutor, create_openai_functions_agent
 
 
 class FlightNumber(BaseModel):
@@ -20,22 +25,39 @@ def get_flight_status(flight_number: FlightNumber, date: Date):
     """
     Get the current status of a flight
     """
+    print("Executing function: Getting flight status")
     return f"The flight {flight_number} on {date} is on time."
 
 
-tools = [get_flight_status]
+@tool
+def get_current_date():
+    """
+    Gets the current date
+    """
+    print("Executing function: Getting current date")
+    return "2024-06-17"
 
-model = ChatOpenAI(
-    model="meta-llama-3-70b-instruct",
-    openai_api_key=os.environ["OCTOAI_API_TOKEN"],
-    openai_api_base="https://text.octoai.run/v1",
-)
 
-agent_executor = create_react_agent(model, tools)
+tools = [get_flight_status, get_current_date]
 
-response = agent_executor.invoke(
-    {"messages": [HumanMessage(content="What is the status of flight AA100?")]}
-)
+# llm = ChatOpenAI(
+#     model_name="meta-llama-3.1-70b-instruct",
+#     openai_api_key=os.environ["OCTOAI_API_TOKEN"],
+#     openai_api_base="https://text.octoai.run/v1",
+#     temperature=0.4,
+#     max_tokens=10000,
+# )
 
-for message in response["messages"]:
-    print(message)
+llm = ChatOpenAI()
+
+from langgraph.prebuilt import create_react_agent
+
+system_prompt = "You are a helpful bot named Fred. You have access to two tools: one that gets the current date and another that gets the status of a flight. Provide short answers to the user's questions."
+graph = create_react_agent(llm, tools=tools, state_modifier=system_prompt)
+inputs = {"messages": [("user", "what is the status of flight AA100?")]}
+for s in graph.stream(inputs, stream_mode="values"):
+    message = s["messages"][-1]
+    if isinstance(message, tuple):
+        print(message)
+    else:
+        message.pretty_print()
