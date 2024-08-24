@@ -1,15 +1,7 @@
 import os
 from langchain_openai import ChatOpenAI
-
-
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-
-
-from langchain_core.messages import HumanMessage
 from langchain.tools import tool
 from langchain.pydantic_v1 import BaseModel, Field
-
-from langchain.agents import AgentExecutor, create_openai_functions_agent
 
 
 class FlightNumber(BaseModel):
