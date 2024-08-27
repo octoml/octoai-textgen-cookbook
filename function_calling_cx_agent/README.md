@@ -1,10 +1,8 @@
-# Function Calling for Customer Support Agent
+# Customer service example for function calling and JSON-mode 
 
 This repository contains the necessary code to run the OctoAI function calling with a DIY solution for converting product reviews to JSON payloads for Jira and interacting with the customer that posted the review. If you want to dive into more details about OctoAI's function calling capabilities, check out [this blog post](...).
 
-Feel free to grab this code and an `OCTOAI_API_TOKEN`, and
-build your LLM-powered applications today!
-
+If you would like to try this out, go to [octo.ai](https://identity.octoml.ai/oauth/account/sign-up) to create an account, generate your `OCTOAI_API_TOKEN`, and complete the guide.
 
 ## Setup
 
