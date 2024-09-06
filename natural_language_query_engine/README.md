@@ -8,7 +8,7 @@ Follow the steps below to set up the project and run the service:
 Before you begin, ensure that Python is installed on your machine. Then, create a virtual environment by running the following command:
 
 ```bash
-python -m venv venv
+python3 -m venv .venv
 ```
 
 Activate the virtual environment:
@@ -19,7 +19,7 @@ Activate the virtual environment:
   ```
 - On **macOS/Linux**:
   ```bash
-  source venv/bin/activate
+  source .venv/bin/activate
   ```
 
 ## 2. Install Dependencies
@@ -27,7 +27,7 @@ Activate the virtual environment:
 Once your virtual environment is activated, install the required dependencies by running:
 
 ```bash
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 ## 3. Set Up Environment Variables
@@ -44,12 +44,20 @@ ENDPOINT_URL=your_octoai_endpoint_url
 
 Replace `your_*` with the actual values.
 
-## 4. Run the Service
+## 4. Run the Gradio Natural Language Query Engine
 
 After setting up the environment variables, you can run the service by executing:
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 This will start the service as configured.
+
+## 5. Run the Streamlit Travel Agent Chatbot - Powered by NLQ Engine
+
+Run the streamlit app as follows:
+
+```bash
+python3 -m streamlit run travel_assistant.py
+```
