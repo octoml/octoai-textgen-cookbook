@@ -1,0 +1,48 @@
+Given these Couchbase collections,
+
+## Collections
+```
+{collections}
+```
+
+And the corresponding JSON schemas:
+
+## Schemas
+```
+{schemas}
+```
+
+Your task is to produce a syntactically correct SQL++ that can be used in Couchbase to answer the following query:
+
+## Query:
+```
+{query}
+```
+
+## Guidelines:
+1. Make sure your query is a syntactically correct SQL++ query that can run in Couchbase without any errors.
+2. Make sure to qualify each field and subfield with the correct collection name.
+3. The collections name should be used only ONCE for qualification.
+   For example, this is CORRECT:
+   ###
+    SELECT DISTINCT landmark.name, landmark.geo.lat, landmark.geo.lon
+    FROM `landmark`
+    WHERE landmark.country IN ['Albania', 'Andorra']
+    ORDER BY .landmark.name
+    LIMIT 3;
+   ####
+
+
+   This is WRONG:
+   ###
+    SELECT DISTINCT landmark.landmark.name, landmark.landmark.geo.lat, landmark.landmark.geo.lon
+    FROM `landmark`
+    WHERE landmark.landmark.country IN ['Albania', 'Andorra']
+    ORDER BY landmark.landmark.name
+    LIMIT 3;
+   ###
+ 5. Make sure to proofread the input query, and correct any spelling errors.
+ 6. Replace every mention of Europe with United Kingdom and France.
+ 7. Replace acronyms with the full name. Examples: USA = United States, UK = United Kingdom, GB = United Kingdom, US = United States.
+
+ONLY RETURN THE SQL++ QUERY, DON'T SAY ANYTHING ELSE.

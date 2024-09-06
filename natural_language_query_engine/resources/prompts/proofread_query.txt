@@ -1,0 +1,22 @@
+Your job is to proofread and correct the following query:
+
+## Query:
+```
+{query}
+```
+
+## Guidelines:
+1. Correct spelling errors, if any.
+2. Capitalize proper nouns, such as cities, countries, locations, names and so on.
+3. Replace every mention of Europe with United Kingdom and France.
+4. Replace acronyms with the full name. Examples: USA = United States, UK = United Kingdom, GB = United Kingdom, US = United States.
+5. Besides countries and cities, DO NOT MODIFY PROPER NOUNS.
+
+## Output format:
+The output should be a JSON like this:
+```
+    {{
+        "query": <your corrected query>,
+    }}
+```
+ONLY RETURN THE JSON OUTPUT, DO NOT ADD ANY COMMENTS OR REMARK. THIS IS CRUCIAL.
