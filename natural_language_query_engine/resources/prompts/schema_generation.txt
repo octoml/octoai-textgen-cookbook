@@ -1,0 +1,10 @@
+Given this sample of JSON files, generate a JSON schema for a collection named ```{collection}```.
+
+Make sure to add a non-trivial description if possible, based on the values in the sample.
+
+Sample
+```
+{sample}
+```
+
+ONLY RETURN THE JSON SCHEMA, DON'T SAY ANYTHING ELSE.

@@ -1,0 +1,583 @@
+{
+  "airport": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Airport",
+    "description": "A collection of airport information",
+    "type": "object",
+    "properties": {
+      "airport": {
+        "type": "object",
+        "properties": {
+          "airportname": {
+            "type": "string",
+            "description": "The name of the airport"
+          },
+          "city": {
+            "type": "string",
+            "description": "The city where the airport is located"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country where the airport is located"
+          },
+          "faa": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The FAA code of the airport"
+          },
+          "geo": {
+            "type": "object",
+            "properties": {
+              "alt": {
+                "type": "number",
+                "description": "The altitude of the airport"
+              },
+              "lat": {
+                "type": "number",
+                "description": "The latitude of the airport"
+              },
+              "lon": {
+                "type": "number",
+                "description": "The longitude of the airport"
+              }
+            },
+            "required": [
+              "alt",
+              "lat",
+              "lon"
+            ]
+          },
+          "icao": {
+            "type": "string",
+            "description": "The ICAO code of the airport"
+          },
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the airport"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the airport"
+          },
+          "tz": {
+            "type": "string",
+            "description": "The time zone of the airport"
+          }
+        },
+        "required": [
+          "airportname",
+          "city",
+          "country",
+          "geo",
+          "icao",
+          "id",
+          "type",
+          "tz"
+        ]
+      }
+    },
+    "required": [
+      "airport"
+    ]
+  },
+  "hotel": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Hotel",
+    "type": "object",
+    "properties": {
+      "hotel": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "checkin": {
+            "type": "string"
+          },
+          "checkout": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "directions": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "fax": {
+            "type": "string"
+          },
+          "free_breakfast": {
+            "type": "boolean"
+          },
+          "free_internet": {
+            "type": "boolean"
+          },
+          "free_parking": {
+            "type": "boolean"
+          },
+          "geo": {
+            "type": "object",
+            "properties": {
+              "accuracy": {
+                "type": "string"
+              },
+              "lat": {
+                "type": "number"
+              },
+              "lon": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "accuracy",
+              "lat",
+              "lon"
+            ]
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pets_ok": {
+            "type": "boolean"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "public_likes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "author": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "ratings": {
+                  "type": "object",
+                  "properties": {
+                    "Cleanliness": {
+                      "type": "number"
+                    },
+                    "Location": {
+                      "type": "number"
+                    },
+                    "Overall": {
+                      "type": "number"
+                    },
+                    "Rooms": {
+                      "type": "number"
+                    },
+                    "Service": {
+                      "type": "number"
+                    },
+                    "Sleep Quality": {
+                      "type": "number"
+                    },
+                    "Value": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "author",
+                "content",
+                "date",
+                "ratings"
+              ]
+            }
+          },
+          "state": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "tollfree": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "vacancy": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "address",
+          "alias",
+          "checkin",
+          "checkout",
+          "city",
+          "country",
+          "description",
+          "directions",
+          "email",
+          "fax",
+          "free_breakfast",
+          "free_internet",
+          "free_parking",
+          "geo",
+          "id",
+          "name",
+          "pets_ok",
+          "phone",
+          "price",
+          "public_likes",
+          "reviews",
+          "state",
+          "title",
+          "tollfree",
+          "type",
+          "url",
+          "vacancy"
+        ]
+      }
+    },
+    "required": [
+      "hotel"
+    ]
+  },
+  "landmark": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Landmark",
+    "description": "A collection of landmarks with various activities, addresses, and geographical information.",
+    "type": "object",
+    "properties": {
+      "landmark": {
+        "type": "object",
+        "properties": {
+          "activity": {
+            "type": "string",
+            "description": "The type of activity associated with the landmark (e.g. see, eat)"
+          },
+          "address": {
+            "type": "string",
+            "description": "The address of the landmark"
+          },
+          "alt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "An alternative name for the landmark"
+          },
+          "city": {
+            "type": "string",
+            "description": "The city where the landmark is located"
+          },
+          "content": {
+            "type": "string",
+            "description": "A brief description of the landmark"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country where the landmark is located"
+          },
+          "directions": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Directions to the landmark"
+          },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The email address of the landmark"
+          },
+          "geo": {
+            "type": "object",
+            "properties": {
+              "accuracy": {
+                "type": "string",
+                "description": "The accuracy of the geographical coordinates"
+              },
+              "lat": {
+                "type": "number",
+                "description": "The latitude of the landmark"
+              },
+              "lon": {
+                "type": "number",
+                "description": "The longitude of the landmark"
+              }
+            },
+            "required": [
+              "accuracy",
+              "lat",
+              "lon"
+            ]
+          },
+          "hours": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The hours of operation for the landmark"
+          },
+          "id": {
+            "type": "integer",
+            "description": "A unique identifier for the landmark"
+          },
+          "image": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "An image associated with the landmark"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the landmark"
+          },
+          "phone": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The phone number of the landmark"
+          },
+          "price": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The price range for the landmark"
+          },
+          "state": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The state or region where the landmark is located"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the landmark"
+          },
+          "tollfree": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "A toll-free phone number for the landmark"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of landmark (e.g. landmark)"
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The URL of the landmark's website"
+          }
+        },
+        "required": [
+          "activity",
+          "address",
+          "city",
+          "content",
+          "country",
+          "geo",
+          "id",
+          "name",
+          "title",
+          "type"
+        ]
+      }
+    },
+    "required": [
+      "landmark"
+    ]
+  },
+  "airline": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Airline",
+    "description": "A collection of airline information",
+    "type": "object",
+    "properties": {
+      "airline": {
+        "type": "object",
+        "properties": {
+          "callsign": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The callsign of the airline"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country where the airline is based"
+          },
+          "iata": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The IATA code of the airline"
+          },
+          "icao": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The ICAO code of the airline"
+          },
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier of the airline"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the airline"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the airline"
+          }
+        },
+        "required": [
+          "callsign",
+          "country",
+          "iata",
+          "icao",
+          "id",
+          "name",
+          "type"
+        ]
+      }
+    },
+    "required": [
+      "airline"
+    ]
+  },
+  "route": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Route",
+    "description": "A collection of routes with their schedules and flight information",
+    "type": "object",
+    "properties": {
+      "route": {
+        "type": "object",
+        "properties": {
+          "airline": {
+            "type": "string",
+            "description": "The airline code"
+          },
+          "airlineid": {
+            "type": "string",
+            "description": "The airline ID"
+          },
+          "destinationairport": {
+            "type": "string",
+            "description": "The destination airport code"
+          },
+          "distance": {
+            "type": "number",
+            "description": "The distance of the route"
+          },
+          "equipment": {
+            "type": "string",
+            "description": "The equipment used for the route"
+          },
+          "id": {
+            "type": "integer",
+            "description": "The route ID"
+          },
+          "schedule": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "day": {
+                  "type": "integer",
+                  "description": "The day of the week (0-6)"
+                },
+                "flight": {
+                  "type": "string",
+                  "description": "The flight number"
+                },
+                "utc": {
+                  "type": "string",
+                  "description": "The UTC time of the flight"
+                }
+              },
+              "required": [
+                "day",
+                "flight",
+                "utc"
+              ]
+            },
+            "description": "The schedule of the route"
+          },
+          "sourceairport": {
+            "type": "string",
+            "description": "The source airport code"
+          },
+          "stops": {
+            "type": "integer",
+            "description": "The number of stops"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of route"
+          }
+        },
+        "required": [
+          "airline",
+          "airlineid",
+          "destinationairport",
+          "distance",
+          "equipment",
+          "id",
+          "schedule",
+          "sourceairport",
+          "stops",
+          "type"
+        ]
+      }
+    },
+    "required": [
+      "route"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+gradio
+python-dotenv
+couchbase
+langchain
+langchain-community
+openai
