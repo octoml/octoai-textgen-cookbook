@@ -151,6 +151,7 @@ class CouchbaseNLQEngine:
             max_retries (int): Maximum number of retries for query generation in case of errors. Defaults to 3.
 
         Returns:
+            str: SQL++ query.
             list[dict]: A list of query results.
 
         Raises:
@@ -190,7 +191,7 @@ class CouchbaseNLQEngine:
 
                 print("Query generated successfully.")
                 # Execute the generated query against the Couchbase database
-                return self.client.run_raw_query(generated_query)
+                return generated_query, self.client.run_raw_query(generated_query)
             except Exception as e:
                 # Handle errors by appending a retry message and decrementing the retry count
                 messages.append(

@@ -52,7 +52,8 @@ def handle_query(query):
     Returns:
         list[dict]: The raw results from the Couchbase database in JSON format.
     """
-    return engine.run_query(schemas, query)
+    _, results = engine.run_query(schemas, query)
+    return results
 
 
 # Define the Gradio interface for querying the Couchbase database
