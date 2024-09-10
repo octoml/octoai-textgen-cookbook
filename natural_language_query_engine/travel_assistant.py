@@ -27,7 +27,7 @@ def transcribe_audio(file_path: str):
         encoded_audio = str(base64.b64encode(f.read()), "utf-8")
 
         reply = requests.post(
-            "https://whisper-4jkxk521l3v1.octoai.run/predict",
+            "https://whisper-demo-kk0powt97tmb.octoai.run/predict",
             headers={
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {os.environ["OCTOAI_API_TOKEN"]}",
@@ -46,10 +46,10 @@ def transcribe_audio(file_path: str):
 
 def do_transcription(audio_file_path):
     with st.status("Transcribing the audio to text..."):
-        # try:
-        transcript = transcribe_audio(audio_file_path)
-        # except Exception as e:
-        #     results = None
+        try:
+            transcript = transcribe_audio(audio_file_path)
+        except Exception as e:
+            results = None
 
     if transcript is None:
         st.error("Transcription failed.")
